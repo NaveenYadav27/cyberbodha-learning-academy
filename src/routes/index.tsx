@@ -67,7 +67,7 @@ function AcademyHome() {
         <div className="portal-entry-list">{portalLinks.map((portal, index) => <Link className="portal-entry" to={portal.to} key={portal.label}><span className="entry-index">0{index + 1}</span><span className="entry-text"><strong>{portal.label}</strong><small>{portal.caption}</small></span><span className="entry-arrow"><ArrowUpRight size={17} /></span></Link>)}</div>
       </section>
 
-      <section className="academy-trust" id="universities"><div className="trust-mark"><Check size={17} /></div><p><strong>Built around real-world capability.</strong> Learn at your pace, practice with purpose, and see your progress clearly.</p><a id="contact" href="mailto:hello@cyberbodha.example">Talk with our team <ArrowRight size={14} /></a></section>
+      <section className="academy-trust" id="contact"><div className="trust-mark"><Check size={17} /></div><p><strong>Built around real-world capability.</strong> Learn at your pace, practice with purpose, and see your progress clearly.</p><a href="#training">Explore team training <ArrowRight size={14} /></a></section>
       <footer className="academy-footer"><Link to="/" className="academy-brand"><span className="brand-mark"><ShieldCheck size={17} /></span><span className="brand-wordmark">Cyber<span>Bodha</span></span></Link><span>Learn. Practice. Simulate. Certify.</span><span>© 2026 CyberBodha</span></footer>
     </main>
   );
