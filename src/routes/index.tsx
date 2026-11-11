@@ -34,7 +34,7 @@ function AcademyHome() {
         <nav className="academy-nav" aria-label="Main navigation">
           <a href="#programs">Programs <ChevronDown size={13} /></a><a href="#catalog">Course catalog</a><a href="#cyber-range">Cyber range</a><a href="#training">Corporate training</a><a href="#universities">University programs</a><a href="#about">About</a><a href="#contact">Contact</a>
         </nav>
-        <div className="academy-actions"><Link className="academy-login" to="/student">Log in</Link><Button asChild size="sm" className="hidden sm:inline-flex"> <Link to="/student">Get started <ArrowRight size={14} /></Link></Button></div>
+        <div className="academy-actions"><Link className="academy-login" to="/student">Log in</Link><Button asChild size="sm" className="hidden sm:inline-flex"><Link to="/student">Get started <ArrowRight size={14} /></Link></Button></div>
         <Button variant="ghost" size="icon" className="academy-mobile-menu" aria-label={mobileNavOpen ? "Close menu" : "Open menu"} aria-expanded={mobileNavOpen} onClick={() => setMobileNavOpen(!mobileNavOpen)}>{mobileNavOpen ? <ChevronDown size={19} /> : <Menu size={19} />}</Button>
       </header>
       {mobileNavOpen ? <nav className="academy-mobile-panel" aria-label="Mobile main navigation">
