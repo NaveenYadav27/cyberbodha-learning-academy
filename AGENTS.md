@@ -28,3 +28,7 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## CyberBodha foundation
+- Keep the academy, student, instructor, and admin experiences as distinct file routes that share focused presentation primitives and role-keyed navigation/data; this gives each audience clear entry points without generating placeholder module pages.
+- Keep the approved route hierarchy and illustrative mock-data contracts in `docs/cyberbodha-foundation.md`; dashboard data remains clearly illustrative until a real data source and permissions are introduced.
