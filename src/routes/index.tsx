@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, Check, ChevronDown, Menu, ShieldCheck } from "lucide-react";
 import labImage from "@/assets/cyberbodha-learning-lab.jpg";
@@ -24,16 +25,21 @@ const portalLinks = [
 ];
 
 function AcademyHome() {
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+
   return (
     <main className="academy-page">
       <header className="academy-header">
         <Link to="/" className="academy-brand" aria-label="CyberBodha home"><span className="brand-mark"><ShieldCheck size={20} strokeWidth={2.4} /></span><span className="brand-wordmark">Cyber<span>Bodha</span></span></Link>
         <nav className="academy-nav" aria-label="Main navigation">
-          <a href="#programs">Programs <ChevronDown size={13} /></a><a href="#catalog">Course catalog</a><a href="#cyber-range">Cyber range</a><a href="#training">For organizations</a><a href="#about">About</a>
+          <a href="#programs">Programs <ChevronDown size={13} /></a><a href="#catalog">Course catalog</a><a href="#cyber-range">Cyber range</a><a href="#training">Corporate training</a><a href="#universities">University programs</a><a href="#about">About</a><a href="#contact">Contact</a>
         </nav>
         <div className="academy-actions"><Link className="academy-login" to="/student">Log in</Link><Button asChild size="sm" className="hidden sm:inline-flex"> <Link to="/student">Get started <ArrowRight size={14} /></Link></Button></div>
-        <Button variant="ghost" size="icon" className="academy-mobile-menu" aria-label="Open menu"><Menu size={19} /></Button>
+        <Button variant="ghost" size="icon" className="academy-mobile-menu" aria-label={mobileNavOpen ? "Close menu" : "Open menu"} aria-expanded={mobileNavOpen} onClick={() => setMobileNavOpen(!mobileNavOpen)}>{mobileNavOpen ? <ChevronDown size={19} /> : <Menu size={19} />}</Button>
       </header>
+      {mobileNavOpen ? <nav className="academy-mobile-panel" aria-label="Mobile main navigation">
+        <a href="#programs" onClick={() => setMobileNavOpen(false)}>Programs</a><a href="#catalog" onClick={() => setMobileNavOpen(false)}>Course catalog</a><a href="#cyber-range" onClick={() => setMobileNavOpen(false)}>Cyber range</a><a href="#training" onClick={() => setMobileNavOpen(false)}>Corporate training</a><a href="#universities" onClick={() => setMobileNavOpen(false)}>University programs</a><a href="#about" onClick={() => setMobileNavOpen(false)}>About</a><a href="#contact" onClick={() => setMobileNavOpen(false)}>Contact</a><Link to="/student" onClick={() => setMobileNavOpen(false)}>Log in</Link>
+      </nav> : null}
 
       <section className="academy-hero">
         <div className="academy-hero-grid">
