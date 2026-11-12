@@ -1,0 +1,87 @@
+name: Deploy CyberBodha to Cloudflare Workers
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate-and-build:
+    name: Validate, Typecheck, Test & Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies (frozen lockfile)
+        run: bun install --frozen-lockfile
+
+      - name: Type checking
+        run: bun x tsc --noEmit
+
+      - name: Run automated test suite
+        run: bun run test
+
+      - name: Build production application
+        run: bun run build
+
+      - name: Verify Cloudflare deployment artifacts
+        run: |
+          test -f .output/server/index.mjs || { echo "Missing .output/server/index.mjs"; exit 1; }
+          test -f .output/server/wrangler.json || { echo "Missing .output/server/wrangler.json"; exit 1; }
+          test -d .output/public || { echo "Missing .output/public directory"; exit 1; }
+          echo "Verified Cloudflare deployment artifacts successfully."
+
+      - name: Upload build artifacts
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: cloudflare-worker-build
+          path: |
+            .output/
+            .wrangler/
+            wrangler.jsonc
+          retention-days: 1
+
+  deploy:
+    name: Deploy to Cloudflare Workers
+    needs: validate-and-build
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: cloudflare-worker-build
+
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
