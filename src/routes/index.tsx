@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, Check, ChevronDown, Menu, ShieldCheck } from "lucide-react";
 import labImage from "@/assets/cyberbodha-learning-lab.jpg";
+import cyberbodhaLogo from "@/assets/cyberbodha-logo.png";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
@@ -30,7 +31,7 @@ function AcademyHome() {
   return (
     <main className="academy-page">
       <header className="academy-header">
-        <Link to="/" className="academy-brand" aria-label="CyberBodha home"><span className="brand-mark"><ShieldCheck size={20} strokeWidth={2.4} /></span><span className="brand-wordmark">Cyber<span>Bodha</span></span></Link>
+        <Link to="/" className="academy-brand" aria-label="CyberBodha home"><span className="brand-mark"><img src={cyberbodhaLogo} alt="CyberBodha Logo" width={36} height={36} /></span><span className="brand-wordmark">Cyber<span>Bodha</span></span></Link>
         <nav className="academy-nav" aria-label="Main navigation">
           <a href="#programs">Programs <ChevronDown size={13} /></a><a href="#catalog">Course catalog</a><a href="#cyber-range">Cyber range</a><a href="#training">Corporate training</a><a href="#universities">University programs</a><a href="#about">About</a><a href="#contact">Contact</a>
         </nav>
@@ -74,7 +75,7 @@ function AcademyHome() {
       </section>
 
       <section className="academy-trust" id="contact"><div className="trust-mark"><Check size={17} /></div><p><strong>Built around real-world capability.</strong> Learn at your pace, practice with purpose, and see your progress clearly.</p><a href="#training">Explore team training <ArrowRight size={14} /></a></section>
-      <footer className="academy-footer"><Link to="/" className="academy-brand"><span className="brand-mark"><ShieldCheck size={17} /></span><span className="brand-wordmark">Cyber<span>Bodha</span></span></Link><span>Learn. Practice. Simulate. Certify.</span><span>© 2026 CyberBodha</span></footer>
+      <footer className="academy-footer"><Link to="/" className="academy-brand"><span className="brand-mark"><img src={cyberbodhaLogo} alt="CyberBodha Logo" width={32} height={32} /></span><span className="brand-wordmark">Cyber<span>Bodha</span></span></Link><span>Learn. Practice. Simulate. Certify.</span><span>© 2026 CyberBodha</span></footer>
     </main>
   );
 }

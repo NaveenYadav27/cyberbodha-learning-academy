@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowDownRight, ArrowRight, Bell, ChevronDown, Menu, Shield, ShieldCheck, X } from "lucide-react";
+import cyberbodhaLogo from "@/assets/cyberbodha-logo.png";
 
 import { Button } from "@/components/ui/button";
 import type { PortalRole } from "@/lib/cyberbodha-data";
@@ -36,7 +37,7 @@ export function PortalLayout({ role, children }: PortalLayoutProps) {
             {menuOpen ? <X /> : <Menu />}
           </Button>
           <Link to={rolePaths[role]} className="flex shrink-0 items-center gap-2.5" aria-label="CyberBodha portal home">
-            <span className="brand-mark"><ShieldCheck size={19} strokeWidth={2.4} /></span>
+            <span className="brand-mark"><img src={cyberbodhaLogo} alt="CyberBodha Logo" width={34} height={34} /></span>
             <span className="brand-wordmark">Cyber<span>Bodha</span></span>
           </Link>
           <span className="hidden h-6 w-px bg-border sm:block" />
