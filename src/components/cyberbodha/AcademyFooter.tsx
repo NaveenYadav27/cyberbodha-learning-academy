@@ -139,6 +139,11 @@ export function AcademyFooter() {
                 </Link>
               </li>
               <li>
+                <Link to="/reviews" className="hover:text-primary transition-colors">
+                  Student Reviews
+                </Link>
+              </li>
+              <li>
                 <Link to="/contact" className="hover:text-primary transition-colors">
                   Contact Admissions
                 </Link>

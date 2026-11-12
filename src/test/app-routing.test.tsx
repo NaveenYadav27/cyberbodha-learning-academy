@@ -25,6 +25,7 @@ describe("App routing", () => {
     "/university-programs",
     "/about",
     "/contact",
+    "/reviews",
     "/programs",
     "/courses/soc-analyst-professional",
     "/programs/soc-analyst",

@@ -22,6 +22,7 @@ import {
   Terminal,
   Users,
   Zap,
+  Star,
 } from "lucide-react";
 import labImage from "@/assets/cyberbodha-learning-lab.jpg";
 import { AcademyHeader } from "@/components/cyberbodha/AcademyHeader";
@@ -32,6 +33,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { COURSES, COURSE_CATEGORIES, getFeaturedCourses } from "@/data/courses";
 import { RANGE_LABS } from "@/data/cyber-range";
+import { REVIEWS } from "@/data/reviews";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -387,6 +389,91 @@ export function AcademyHome() {
                     </div>
                     <h3 className="text-base font-bold text-foreground">{item.title}</h3>
                     <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Section: Student Testimonials */}
+        <section className="px-4 py-16 sm:px-6 lg:px-8 border-b border-border bg-card/30">
+          <div className="mx-auto max-w-7xl space-y-10">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+              <div className="max-w-2xl space-y-2">
+                <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-wider">
+                  <Star className="h-3.5 w-3.5 fill-primary text-primary" />
+                  <span>AUTHENTIC STUDENT TESTIMONIALS</span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
+                  Trusted by Learners. Built Around Practical Skills.
+                </h2>
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                  Feedback from learners who experienced CyberBodha training.
+                </p>
+              </div>
+              <Button asChild variant="outline" size="sm" className="gap-1.5 text-xs">
+                <Link to="/reviews">
+                  <span>Read All Reviews</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </Button>
+            </div>
+
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+              {REVIEWS.map((review) => {
+                const initials = review.studentName
+                  .split(" ")
+                  .map((p) => p[0])
+                  .join("")
+                  .toUpperCase()
+                  .slice(0, 2);
+
+                return (
+                  <div
+                    key={review.id}
+                    className="rounded-2xl border border-border bg-card p-6 shadow-sm flex flex-col justify-between space-y-4 hover:border-primary/50 transition-colors"
+                  >
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-1 text-amber-500" aria-label={`${review.rating} out of 5 stars`}>
+                          {Array.from({ length: 5 }).map((_, i) => (
+                            <Star
+                              key={i}
+                              className={`h-3.5 w-3.5 ${
+                                i < review.rating ? "fill-amber-400 text-amber-400" : "text-muted-foreground/30"
+                              }`}
+                            />
+                          ))}
+                        </div>
+                        <span className="text-[11px] text-muted-foreground">{review.date}</span>
+                      </div>
+
+                      <blockquote className="text-xs text-foreground/90 leading-relaxed italic border-l-2 border-primary/40 pl-3">
+                        "{review.reviewText}"
+                      </blockquote>
+
+                      {review.truncated && (
+                        <p className="text-[10px] text-muted-foreground italic">
+                          * Note: Excerpt preserved exactly as displayed on source record.
+                        </p>
+                      )}
+                    </div>
+
+                    <div className="pt-4 border-t border-border/70 flex items-center justify-between">
+                      <div className="flex items-center gap-2.5">
+                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary font-bold text-xs">
+                          {initials}
+                        </div>
+                        <div>
+                          <h3 className="text-xs font-bold text-foreground leading-tight">{review.studentName}</h3>
+                          <p className="text-[11px] text-muted-foreground leading-tight mt-0.5">{review.course}</p>
+                        </div>
+                      </div>
+                      <Badge variant="outline" className="text-[10px] text-muted-foreground border-border/80">
+                        via {review.source}
+                      </Badge>
+                    </div>
                   </div>
                 );
               })}
