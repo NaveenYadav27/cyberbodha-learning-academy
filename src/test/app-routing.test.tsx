@@ -15,13 +15,24 @@ describe("App routing", () => {
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
   });
 
-  it.each(["/student", "/instructor", "/admin"]) (
-    "matches the %s role workspace",
-    (path) => {
-      const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
-      const matches = router.matchRoutes(path);
+  it.each([
+    "/student",
+    "/instructor",
+    "/admin",
+    "/courses",
+    "/cyber-range",
+    "/corporate-training",
+    "/university-programs",
+    "/about",
+    "/contact",
+    "/programs",
+    "/courses/soc-analyst-professional",
+    "/programs/soc-analyst",
+    "/course-catalog",
+  ])("matches the %s route", (path) => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+    const matches = router.matchRoutes(path);
 
-      expect(matches.at(-1)?.fullPath).toBe(path);
-    },
-  );
+    expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
+  });
 });

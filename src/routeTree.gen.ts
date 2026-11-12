@@ -10,18 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as AdminRouteImport } from './routes/admin'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CorporateTrainingRouteImport } from './routes/corporate-training'
+import { Route as CourseCatalogRouteImport } from './routes/course-catalog'
+import { Route as CyberRangeRouteImport } from './routes/cyber-range'
 import { Route as InstructorRouteImport } from './routes/instructor'
 import { Route as StudentRouteImport } from './routes/student'
+import { Route as UniversityProgramsRouteImport } from './routes/university-programs'
+import { Route as CoursesIndexRouteImport } from './routes/courses/index'
+import { Route as CoursesSlugRouteImport } from './routes/courses/$slug'
+import { Route as ProgramsIndexRouteImport } from './routes/programs/index'
+import { Route as ProgramsSlugRouteImport } from './routes/programs/$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminRoute = AdminRouteImport.update({
   id: '/admin',
   path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CorporateTrainingRoute = CorporateTrainingRouteImport.update({
+  id: '/corporate-training',
+  path: '/corporate-training',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CourseCatalogRoute = CourseCatalogRouteImport.update({
+  id: '/course-catalog',
+  path: '/course-catalog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CyberRangeRoute = CyberRangeRouteImport.update({
+  id: '/cyber-range',
+  path: '/cyber-range',
   getParentRoute: () => rootRouteImport,
 } as any)
 const InstructorRoute = InstructorRouteImport.update({
@@ -34,39 +69,147 @@ const StudentRoute = StudentRouteImport.update({
   path: '/student',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UniversityProgramsRoute = UniversityProgramsRouteImport.update({
+  id: '/university-programs',
+  path: '/university-programs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoursesIndexRoute = CoursesIndexRouteImport.update({
+  id: '/courses/',
+  path: '/courses/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoursesSlugRoute = CoursesSlugRouteImport.update({
+  id: '/courses/$slug',
+  path: '/courses/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgramsIndexRoute = ProgramsIndexRouteImport.update({
+  id: '/programs/',
+  path: '/programs/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgramsSlugRoute = ProgramsSlugRouteImport.update({
+  id: '/programs/$slug',
+  path: '/programs/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/admin': typeof AdminRoute
+  '/contact': typeof ContactRoute
+  '/corporate-training': typeof CorporateTrainingRoute
+  '/course-catalog': typeof CourseCatalogRoute
+  '/cyber-range': typeof CyberRangeRoute
   '/instructor': typeof InstructorRoute
   '/student': typeof StudentRoute
+  '/university-programs': typeof UniversityProgramsRoute
+  '/courses/$slug': typeof CoursesSlugRoute
+  '/programs/$slug': typeof ProgramsSlugRoute
+  '/courses/': typeof CoursesIndexRoute
+  '/programs/': typeof ProgramsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/admin': typeof AdminRoute
+  '/contact': typeof ContactRoute
+  '/corporate-training': typeof CorporateTrainingRoute
+  '/course-catalog': typeof CourseCatalogRoute
+  '/cyber-range': typeof CyberRangeRoute
   '/instructor': typeof InstructorRoute
   '/student': typeof StudentRoute
+  '/university-programs': typeof UniversityProgramsRoute
+  '/courses/$slug': typeof CoursesSlugRoute
+  '/programs/$slug': typeof ProgramsSlugRoute
+  '/courses': typeof CoursesIndexRoute
+  '/programs': typeof ProgramsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/admin': typeof AdminRoute
+  '/contact': typeof ContactRoute
+  '/corporate-training': typeof CorporateTrainingRoute
+  '/course-catalog': typeof CourseCatalogRoute
+  '/cyber-range': typeof CyberRangeRoute
   '/instructor': typeof InstructorRoute
   '/student': typeof StudentRoute
+  '/university-programs': typeof UniversityProgramsRoute
+  '/courses/$slug': typeof CoursesSlugRoute
+  '/programs/$slug': typeof ProgramsSlugRoute
+  '/courses/': typeof CoursesIndexRoute
+  '/programs/': typeof ProgramsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/admin' | '/instructor' | '/student'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/admin'
+    | '/contact'
+    | '/corporate-training'
+    | '/course-catalog'
+    | '/cyber-range'
+    | '/instructor'
+    | '/student'
+    | '/university-programs'
+    | '/courses/$slug'
+    | '/programs/$slug'
+    | '/courses/'
+    | '/programs/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/admin' | '/instructor' | '/student'
-  id: '__root__' | '/' | '/admin' | '/instructor' | '/student'
+  to:
+    | '/'
+    | '/about'
+    | '/admin'
+    | '/contact'
+    | '/corporate-training'
+    | '/course-catalog'
+    | '/cyber-range'
+    | '/instructor'
+    | '/student'
+    | '/university-programs'
+    | '/courses/$slug'
+    | '/programs/$slug'
+    | '/courses'
+    | '/programs'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/admin'
+    | '/contact'
+    | '/corporate-training'
+    | '/course-catalog'
+    | '/cyber-range'
+    | '/instructor'
+    | '/student'
+    | '/university-programs'
+    | '/courses/$slug'
+    | '/programs/$slug'
+    | '/courses/'
+    | '/programs/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   AdminRoute: typeof AdminRoute
+  ContactRoute: typeof ContactRoute
+  CorporateTrainingRoute: typeof CorporateTrainingRoute
+  CourseCatalogRoute: typeof CourseCatalogRoute
+  CyberRangeRoute: typeof CyberRangeRoute
   InstructorRoute: typeof InstructorRoute
   StudentRoute: typeof StudentRoute
+  UniversityProgramsRoute: typeof UniversityProgramsRoute
+  CoursesSlugRoute: typeof CoursesSlugRoute
+  ProgramsSlugRoute: typeof ProgramsSlugRoute
+  CoursesIndexRoute: typeof CoursesIndexRoute
+  ProgramsIndexRoute: typeof ProgramsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -78,11 +221,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin': {
       id: '/admin'
       path: '/admin'
       fullPath: '/admin'
       preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/corporate-training': {
+      id: '/corporate-training'
+      path: '/corporate-training'
+      fullPath: '/corporate-training'
+      preLoaderRoute: typeof CorporateTrainingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/course-catalog': {
+      id: '/course-catalog'
+      path: '/course-catalog'
+      fullPath: '/course-catalog'
+      preLoaderRoute: typeof CourseCatalogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cyber-range': {
+      id: '/cyber-range'
+      path: '/cyber-range'
+      fullPath: '/cyber-range'
+      preLoaderRoute: typeof CyberRangeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/instructor': {
@@ -99,14 +277,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StudentRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/university-programs': {
+      id: '/university-programs'
+      path: '/university-programs'
+      fullPath: '/university-programs'
+      preLoaderRoute: typeof UniversityProgramsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/courses/': {
+      id: '/courses/'
+      path: '/courses'
+      fullPath: '/courses/'
+      preLoaderRoute: typeof CoursesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/courses/$slug': {
+      id: '/courses/$slug'
+      path: '/courses/$slug'
+      fullPath: '/courses/$slug'
+      preLoaderRoute: typeof CoursesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programs/': {
+      id: '/programs/'
+      path: '/programs'
+      fullPath: '/programs/'
+      preLoaderRoute: typeof ProgramsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programs/$slug': {
+      id: '/programs/$slug'
+      path: '/programs/$slug'
+      fullPath: '/programs/$slug'
+      preLoaderRoute: typeof ProgramsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   AdminRoute: AdminRoute,
+  ContactRoute: ContactRoute,
+  CorporateTrainingRoute: CorporateTrainingRoute,
+  CourseCatalogRoute: CourseCatalogRoute,
+  CyberRangeRoute: CyberRangeRoute,
   InstructorRoute: InstructorRoute,
   StudentRoute: StudentRoute,
+  UniversityProgramsRoute: UniversityProgramsRoute,
+  CoursesSlugRoute: CoursesSlugRoute,
+  ProgramsSlugRoute: ProgramsSlugRoute,
+  CoursesIndexRoute: CoursesIndexRoute,
+  ProgramsIndexRoute: ProgramsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
