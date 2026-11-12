@@ -195,10 +195,10 @@
   background: var(--color-background);
 }
 
-.academy-brand { display: inline-flex; align-items: center; gap: 8px; color: var(--color-foreground); text-decoration: none; flex-shrink: 0; cursor: pointer; }
-.brand-mark { display: inline-flex; align-items: center; justify-content: center; height: 24px; width: 24px; color: var(--color-primary-foreground); background: transparent; border-radius: 50%; overflow: hidden; flex-shrink: 0; vertical-align: middle; }
-.brand-mark img { width: 100%; height: 100%; object-fit: contain; display: block; }
-.brand-wordmark { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; line-height: 1; display: inline-flex; align-items: center; }
+.academy-brand { display: inline-flex; align-items: center; gap: 12px; color: var(--color-foreground); text-decoration: none; flex-shrink: 0; cursor: pointer; }
+.brand-mark { display: inline-flex; align-items: center; justify-content: center; height: 52px; width: 52px; color: var(--color-primary-foreground); background: transparent; border-radius: 50%; overflow: hidden; flex-shrink: 0; vertical-align: middle; }
+.brand-mark img { width: 100%; height: 100%; object-fit: contain; display: block; border-radius: 50%; }
+.brand-wordmark { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; line-height: 1; display: inline-flex; align-items: center; }
 .brand-wordmark span { color: var(--color-primary); }
 .academy-nav { display: flex; align-items: center; justify-content: center; gap: clamp(16px, 2vw, 30px); }
 .academy-nav a, .academy-login { display: inline-flex; align-items: center; gap: 4px; color: var(--color-muted-foreground); font-size: 12px; font-weight: 600; text-decoration: none; transition: color 160ms ease; }
@@ -272,11 +272,13 @@
 .academy-trust > p strong { color: var(--color-foreground); }
 .academy-trust > a { display: inline-flex; align-items: center; gap: 6px; color: var(--color-foreground); font-size: 10px; font-weight: 700; text-decoration: none; white-space: nowrap; }
 .academy-footer { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 20px clamp(20px, 5vw, 82px); color: var(--color-muted-foreground); font-size: 9px; }
-.academy-footer .brand-mark { width: 18px; height: 18px; }
-.academy-footer .brand-wordmark { font-size: 15px; }
+.academy-footer .brand-mark { width: 32px; height: 32px; }
+.academy-footer .brand-wordmark { font-size: 17px; }
 
 .portal-shell { --portal-canvas: var(--color-background); --portal-sidebar: var(--color-card); background: var(--portal-canvas); }
 .portal-topbar { background: var(--color-card); }
+.portal-topbar .brand-mark { height: 46px; width: 46px; }
+.portal-topbar .brand-wordmark { font-size: 23px; }
 .portal-body { display: grid; grid-template-columns: 238px minmax(0, 1fr); min-height: calc(100vh - 68px); }
 .portal-sidebar { position: sticky; top: 68px; display: flex; flex-direction: column; align-self: start; width: 238px; height: calc(100vh - 68px); border-right: 1px solid var(--color-border); background: var(--portal-sidebar); }
 .eyebrow-label { margin: 0; color: var(--color-muted-foreground); font-size: 9px; font-weight: 700; text-transform: uppercase; }
@@ -378,9 +380,12 @@
   .academy-footer { flex-wrap: wrap; padding: 17px 18px; }
   .academy-footer > span:nth-child(2) { display: none; }
 
+  .academy-header .brand-mark { height: 42px; width: 42px; }
+  .academy-header .brand-wordmark { font-size: 22px; }
   .portal-topbar { height: 60px; padding-inline: 10px; }
   .portal-topbar > div:first-child { gap: 6px; }
-  .portal-topbar .brand-wordmark { font-size: 17px; }
+  .portal-topbar .brand-mark { height: 38px; width: 38px; }
+  .portal-topbar .brand-wordmark { font-size: 20px; }
   .portal-body { display: block; min-height: calc(100vh - 60px); }
   .portal-sidebar { position: fixed; top: 60px; bottom: 0; left: 0; z-index: 40; width: min(280px, 84vw); height: calc(100dvh - 60px); transform: translateX(-105%); transition: transform 180ms ease; box-shadow: 12px 0 28px oklch(0.12 0.025 250 / 12%); }
   .portal-sidebar.is-open { transform: translateX(0); }

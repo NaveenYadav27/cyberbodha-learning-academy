@@ -36,8 +36,8 @@ export function PortalLayout({ role, children }: PortalLayoutProps) {
           <Button aria-label={menuOpen ? "Close navigation" : "Open navigation"} variant="ghost" size="icon" className="lg:hidden" onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <X /> : <Menu />}
           </Button>
-          <Link to="/" className="flex shrink-0 items-center gap-2 cursor-pointer" aria-label="CyberBodha home">
-            <span className="brand-mark"><img src={cyberbodhaLogo} alt="CyberBodha Logo" width={26} height={26} /></span>
+          <Link to="/" className="academy-brand flex shrink-0 items-center gap-2.5 cursor-pointer" aria-label="CyberBodha home">
+            <span className="brand-mark"><img src={cyberbodhaLogo} alt="CyberBodha Logo" /></span>
             <span className="brand-wordmark">Cyber<span>Bodha</span></span>
           </Link>
           <span className="hidden h-6 w-px bg-border sm:block" />

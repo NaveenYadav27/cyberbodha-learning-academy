@@ -6,11 +6,11 @@
   "routes": [
     {
       "pattern": "cyberbodha.com/*",
-      "zone_name": "cyberbodha.com"
+      "zone_id": "f4c0f8ee5d165932a0fbdea62238f2a3"
     },
     {
       "pattern": "www.cyberbodha.com/*",
-      "zone_name": "cyberbodha.com"
+      "zone_id": "f4c0f8ee5d165932a0fbdea62238f2a3"
     }
   ]
 }

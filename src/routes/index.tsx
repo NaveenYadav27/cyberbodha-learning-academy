@@ -31,7 +31,7 @@ function AcademyHome() {
   return (
     <main className="academy-page">
       <header className="academy-header">
-        <Link to="/" className="academy-brand cursor-pointer" aria-label="CyberBodha home"><span className="brand-mark"><img src={cyberbodhaLogo} alt="CyberBodha Logo" width={26} height={26} /></span><span className="brand-wordmark">Cyber<span>Bodha</span></span></Link>
+        <Link to="/" className="academy-brand cursor-pointer" aria-label="CyberBodha home"><span className="brand-mark"><img src={cyberbodhaLogo} alt="CyberBodha Logo" /></span><span className="brand-wordmark">Cyber<span>Bodha</span></span></Link>
         <nav className="academy-nav" aria-label="Main navigation">
           <a href="#programs">Programs <ChevronDown size={13} /></a><a href="#catalog">Course catalog</a><a href="#cyber-range">Cyber range</a><a href="#training">Corporate training</a><a href="#universities">University programs</a><a href="#about">About</a><a href="#contact">Contact</a>
         </nav>
@@ -75,7 +75,7 @@ function AcademyHome() {
       </section>
 
       <section className="academy-trust" id="contact"><div className="trust-mark"><Check size={17} /></div><p><strong>Built around real-world capability.</strong> Learn at your pace, practice with purpose, and see your progress clearly.</p><a href="#training">Explore team training <ArrowRight size={14} /></a></section>
-      <footer className="academy-footer"><Link to="/" className="academy-brand cursor-pointer" aria-label="CyberBodha home"><span className="brand-mark"><img src={cyberbodhaLogo} alt="CyberBodha Logo" width={20} height={20} /></span><span className="brand-wordmark">Cyber<span>Bodha</span></span></Link><span>Learn. Practice. Simulate. Certify.</span><span>© 2026 CyberBodha</span></footer>
+      <footer className="academy-footer"><Link to="/" className="academy-brand cursor-pointer" aria-label="CyberBodha home"><span className="brand-mark"><img src={cyberbodhaLogo} alt="CyberBodha Logo" /></span><span className="brand-wordmark">Cyber<span>Bodha</span></span></Link><span>Learn. Practice. Simulate. Certify.</span><span>© 2026 CyberBodha</span></footer>
     </main>
   );
 }
