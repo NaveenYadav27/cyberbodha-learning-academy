@@ -195,10 +195,10 @@
   background: var(--color-background);
 }
 
-.academy-brand { display: inline-flex; align-items: center; gap: 12px; color: var(--color-foreground); text-decoration: none; flex-shrink: 0; cursor: pointer; }
-.brand-mark { display: inline-flex; align-items: center; justify-content: center; height: 52px; width: 52px; color: var(--color-primary-foreground); background: transparent; border-radius: 50%; overflow: hidden; flex-shrink: 0; vertical-align: middle; }
+.academy-brand { display: inline-flex; align-items: center; gap: 14px; color: var(--color-foreground); text-decoration: none; flex-shrink: 0; cursor: pointer; }
+.brand-mark { display: inline-flex; align-items: center; justify-content: center; height: 56px; width: 56px; min-width: 56px; min-height: 56px; color: var(--color-primary-foreground); background: transparent; border-radius: 50%; overflow: hidden; flex-shrink: 0; vertical-align: middle; }
 .brand-mark img { width: 100%; height: 100%; object-fit: contain; display: block; border-radius: 50%; }
-.brand-wordmark { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; line-height: 1; display: inline-flex; align-items: center; }
+.brand-wordmark { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; line-height: 1; display: inline-flex; align-items: center; }
 .brand-wordmark span { color: var(--color-primary); }
 .academy-nav { display: flex; align-items: center; justify-content: center; gap: clamp(16px, 2vw, 30px); }
 .academy-nav a, .academy-login { display: inline-flex; align-items: center; gap: 4px; color: var(--color-muted-foreground); font-size: 12px; font-weight: 600; text-decoration: none; transition: color 160ms ease; }
