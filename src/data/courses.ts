@@ -1,3 +1,5 @@
+import { CEH_V13_MODULES, type CehModule, type CehModuleLab, type CehKnowledgeCheck, type ContentClassification } from "./ceh-v13-curriculum";
+
 export type CourseCategory =
   | "SOC & Blue Team"
   | "Offensive Security & VAPT"
@@ -14,6 +16,19 @@ export interface CourseModule {
   title: string;
   description: string;
   topics: string[];
+  number?: number;
+  officialNumber?: string;
+  officialTitle?: string;
+  category?: string;
+  classification?: ContentClassification | string;
+  learningObjectives?: string[];
+  conceptExplanation?: string;
+  aiAssistantFeatures?: string[];
+  guidedLabs?: CehModuleLab[] | any[];
+  practiceChallenges?: string[];
+  knowledgeChecks?: CehKnowledgeCheck[] | any[];
+  moduleAssessment?: string;
+  summary?: string;
 }
 
 export interface CourseFAQ {
@@ -184,133 +199,123 @@ export const COURSES: Course[] = [
     title: "CEH v13 AI Integrated Ethical Hacking",
     category: "Offensive Security & VAPT",
     level: "Foundation to Advanced",
-    shortDescription: "Master offensive security concepts, penetration testing methodologies, and modern AI-assisted ethical hacking workflows.",
-    overview: "This program delivers an ethical hacking curriculum integrated with AI-driven security workflows. Learn authorized penetration testing techniques, reconnaissance, vulnerability exploitation, and defense strategies while exploring how artificial intelligence is transforming both offensive security assessments and threat countermeasures.",
+    shortDescription: "Official EC-Council CEH v13 aligned 20-module curriculum covering offensive security, penetration testing, and AI-accelerated cyber workflows.",
+    overview: "This program delivers the official 20-module Certified Ethical Hacker (CEH v13 AI) curriculum mapped to EC-Council standards and enhanced with CyberBodha Cyber Range virtual labs. Learn authorized penetration testing, vulnerability exploitation, network attacks, cloud security, and post-exploitation workflows while mastering how artificial intelligence is transforming both offensive security testing and defensive threat countermeasures.",
     audience: [
       "Security specialists, penetration testers, and vulnerability analysts",
       "Network engineers, systems administrators, and IT auditors",
-      "Cybersecurity professionals preparing for ethical hacking roles and knowledge benchmarks",
-      "Engineering students aiming to understand offensive security and system defenses",
+      "Cybersecurity professionals preparing for the EC-Council CEH v13 certification examination",
+      "Engineering students aiming to understand offensive security, system defenses, and AI-assisted testing",
     ],
     prerequisites: [
       "Working knowledge of TCP/IP networking, subnetting, and port services",
-      "Basic command line proficiency in Linux and Windows",
+      "Basic command line proficiency in Linux (Bash) and Windows",
       "Strict commitment to ethical conduct and legal testing boundaries",
     ],
     learningOutcomes: [
-      "Conduct systematic reconnaissance and asset discovery using open-source tools",
-      "Identify, validate, and document security vulnerabilities across network and web assets",
-      "Execute authorized penetration testing methodologies across various attack surfaces",
-      "Leverage AI assistance for script generation, payload analysis, and report drafting",
-      "Deliver actionable remediation plans to harden tested architectures",
+      "Master the official 20-module EC-Council CEH v13 ethical hacking body of knowledge",
+      "Conduct systematic reconnaissance, network scanning, and deep service enumeration",
+      "Execute authorized exploitation across systems, web applications, wireless, mobile, IoT/OT, and cloud architectures",
+      "Leverage modern AI workflows for automated reconnaissance synthesis, exploit tuning, and remediation reporting",
+      "Analyze and detect AI-driven threats including polymorphic malware, deepfakes, and prompt injection vulnerabilities",
+      "Draft audit-grade executive and technical remediation reports to harden enterprise defenses",
     ],
     skills: [
-      "Ethical Hacking Methodologies",
-      "Active & Passive Reconnaissance",
-      "Vulnerability Scanning",
-      "System & Network Exploitation",
-      "Web Application Security",
-      "AI-Assisted Security Workflows",
-      "Remediation Reporting",
+      "Official CEH v13 20-Module Scope",
+      "Active & Passive OSINT Reconnaissance",
+      "Advanced Port & Network Scanning (Nmap/Masscan)",
+      "System Exploitation & Privilege Escalation",
+      "OWASP Top 10 Web Application Pentesting",
+      "SQL Injection & Advanced Database Extraction",
+      "Wireless & WPA2/WPA3 Security Auditing",
+      "Mobile App (Android/iOS) Reverse Engineering",
+      "IoT & OT / SCADA Modbus Interrogation",
+      "AWS & Multi-Cloud IAM Privilege Escalation",
+      "Applied Cryptography & Padding Oracle Attacks",
+      "AI-Assisted Security & Prompt Defense Workflows",
     ],
-    curriculum: [
-      {
-        title: "Module 1: Ethical Hacking Foundations & Legal Frameworks",
-        description: "Understanding ethical boundaries, authorization scopes, computer misuse acts, and compliance guidelines.",
-        topics: ["Ethics & Scope of Authorization", "Legal Considerations & Compliance", "Types of Hackers & Threat Models", "Pentest Standards (PTES, NIST)"],
-      },
-      {
-        title: "Module 2: Reconnaissance & Intelligence Gathering",
-        description: "Uncovering digital footprints through passive OSINT and active reconnaissance.",
-        topics: ["OSINT Tools & Frameworks", "Search Engine Dorking", "DNS & WHOIS Reconnaissance", "Automating OSINT with Python and AI Tools"],
-      },
-      {
-        title: "Module 3: Scanning & Enumeration",
-        description: "Mapping attack surfaces, probing open ports, service versions, and system banners.",
-        topics: ["Port Scanning Techniques with Nmap", "Service Version & OS Fingerprinting", "SNMP, SMB, and LDAP Enumeration", "Vulnerability Scanning with OpenVAS/Nessus"],
-      },
-      {
-        title: "Module 4: Vulnerability Assessment & Validation",
-        description: "Analyzing scan results, triaging false positives, and prioritizing exploitable risks.",
-        topics: ["Vulnerability Categorization (CVE/CWE)", "CVSS Scoring Breakdown", "Manual Verification vs. Automated Scanners", "Risk Prioritization Matrices"],
-      },
-      {
-        title: "Module 5: System Hacking & Privilege Escalation",
-        description: "Gaining initial access and escalating privileges within controlled laboratory systems.",
-        topics: ["Password Cracking & Hash Types", "Buffer Overflows & Memory Concepts", "Windows Privilege Escalation (Privesc)", "Linux SUID & Cron Exploitation"],
-      },
-      {
-        title: "Module 6: Network Security Testing",
-        description: "Evaluating wired and wireless network architectures against common attacks.",
-        topics: ["Man-in-the-Middle (MitM) Concepts", "ARP Spoofing & DNS Poisoning", "Sniffing Traffic & Packet Inspection", "Network Segmentation Testing"],
-      },
-      {
-        title: "Module 7: Web Application Security Fundamentals",
-        description: "Assessing web applications against the OWASP Top 10 vulnerabilities.",
-        topics: ["Injection Flaws (SQLi, Command Injection)", "Cross-Site Scripting (XSS)", "Cross-Site Request Forgery (CSRF)", "Insecure Direct Object References (IDOR)"],
-      },
-      {
-        title: "Module 8: Wireless & IoT Security Overview",
-        description: "Understanding wireless protocols, encryption flaws, and IoT attack vectors.",
-        topics: ["WPA2/WPA3 Handshake Capture & Cracking", "Rogue Access Points & Evil Twins", "Bluetooth & RFID Vectors", "IoT Device Vulnerabilities"],
-      },
-      {
-        title: "Module 9: Social Engineering & Human Factors",
-        description: "Analyzing social engineering tactics and building organizational defenses.",
-        topics: ["Phishing, Spear Phishing & Vishing", "Credential Harvesting Simulations", "Physical Security Assessments", "Human Defense Awareness Training"],
-      },
-      {
-        title: "Module 10: Malware Concepts & Defensive Evasion",
-        description: "Examining malware categories, trojans, backdoors, and analysis methodologies.",
-        topics: ["Malware Classification & Delivery", "Static vs. Dynamic Analysis Basics", "Obfuscation & Evasion Techniques", "Defensive Detection Strategies"],
-      },
-      {
-        title: "Module 11: Cloud Security Fundamentals for Pentesters",
-        description: "Exploring security configurations and common missteps in AWS, Azure, and GCP.",
-        topics: ["Cloud Shared Responsibility Model", "IAM Misconfigurations & Privilege Escalation", "S3 & Storage Bucket Exposures", "Cloud Pentesting Rules of Engagement"],
-      },
-      {
-        title: "Module 12: AI-Assisted Security Workflows",
-        description: "Integrating modern generative AI into ethical hacking, reporting, and defense workflows.",
-        topics: ["Prompt Engineering for Security Testing", "AI-Assisted Code Auditing", "Automated Report Section Generation", "Defending Against Adversarial AI"],
-      },
-      {
-        title: "Module 13: Professional Remediation Reporting",
-        description: "Drafting technical and executive reports that deliver measurable security improvements.",
-        topics: ["Report Structure & Writing Guidelines", "Root Cause Analysis", "Actionable Remediation Guidance", "Client Debrief & Presentation Skills"],
-      },
-      {
-        title: "Module 14: Practical Ethical Hacking Capstone",
-        description: "Comprehensive capture-the-flag (CTF) practical assessment in an isolated network range.",
-        topics: ["Multi-host Target Range", "Reconnaissance to Flag Capture", "Reporting of Vulnerabilities Found", "Faculty Evaluation & Certification"],
-      },
-    ],
+    curriculum: CEH_V13_MODULES.map((m) => ({
+      number: m.number,
+      officialNumber: m.officialNumber,
+      officialTitle: m.officialTitle,
+      title: `${m.officialNumber}: ${m.officialTitle}`,
+      description: m.description,
+      topics: m.officialTopics,
+      category: m.category,
+      classification: m.classification,
+      learningObjectives: m.learningObjectives,
+      conceptExplanation: m.conceptExplanation,
+      aiAssistantFeatures: m.aiAssistantFeatures,
+      guidedLabs: m.guidedLabs,
+      practiceChallenges: m.practiceChallenges,
+      knowledgeChecks: m.knowledgeChecks,
+      moduleAssessment: m.moduleAssessment,
+      summary: m.summary,
+    })),
     labHighlights: [
-      "Performing comprehensive network enumeration on isolated multi-subnet targets",
-      "Identifying and exploiting SQL injection and Cross-Site Scripting in lab web applications",
-      "Escalating privileges in Windows and Linux target machines using misconfigured permissions",
-      "Using AI tools to streamline script automation and generate executive reporting summaries",
+      "Targeted Footprinting & Reconnaissance using OSINT frameworks, Shodan, and automated certificate parsing",
+      "Stealth Network Scanning, timing manipulation, and custom Nmap Scripting Engine (NSE) exploitation",
+      "Active Directory, SMB, and SNMP enumeration in simulated multi-tier enterprise domains",
+      "Windows Token Impersonation, unquoted service path exploitation, and Linux SUID privilege escalation",
+      "Reverse engineering malware in isolated sandboxes and extracting outbound C2 communication IOCs",
+      "Switched network packet sniffing, ARP cache poisoning, and credential stream decoding with Wireshark",
+      "Simulated corporate spear-phishing with GoPhish and AI deepfake defense verification",
+      "Application layer DoS testing, Slowloris mitigation, and WAF rate-limiting configuration",
+      "Session hijacking, JWT signature tampering, and insecure cookie exploitation with Burp Suite",
+      "IDS, WAF, and honeypot evasion using payload mutation, protocol fragmentation, and DNS tunneling",
+      "Exploiting web server misconfigurations and directory traversal flaws on Apache/Nginx",
+      "OWASP Top 10 web exploitation: Reflected/Stored XSS, SSRF to cloud metadata, and IDOR bypasses",
+      "Manual and automated SQL injection with SQLMap to extract schemas and execute system commands",
+      "WPA2 4-way handshake interception and PMKID extraction using Aircrack-ng and Hashcat",
+      "Decompiling Android APKs with JADX, hooking methods with Frida, and bypassing SSL pinning",
+      "Carving IoT firmware images with Binwalk and interrogating unauthenticated Modbus TCP industrial controllers",
+      "AWS cloud penetration testing: IAM role privilege escalation, S3 bucket enumeration, and Terraform auditing",
+      "Padding oracle cryptanalysis, SSL/TLS cipher suite auditing, and post-quantum cryptographic readiness",
     ],
-    technologies: ["Kali Linux", "Nmap", "Burp Suite", "Metasploit", "Wireshark", "John the Ripper", "Hydra", "OWASP ZAP", "Python"],
-    format: "Instructor-led training with hands-on practice labs",
-    certificationNote: "Prepares students for ethical hacking industry benchmarks. Certification exams are independently administered.",
+    technologies: [
+      "Kali Linux 2026",
+      "Nmap & Masscan",
+      "Burp Suite Professional",
+      "Metasploit Framework",
+      "Wireshark & Tcpdump",
+      "Hashcat & John the Ripper",
+      "SQLMap",
+      "Aircrack-ng Suite",
+      "JADX-GUI & Frida",
+      "Binwalk & QEMU",
+      "AWS CLI & Pacu",
+      "OWASP ZAP",
+      "OpenSSL",
+      "Python 3",
+    ],
+    format: "Instructor-led training + dedicated Cyber Range practical lab environments",
+    duration: "40 Hours Structured Curriculum + Unlimited Cyber Range Access",
+    certificationNote: "Fully aligned with EC-Council Certified Ethical Hacker (CEH v13 AI) exam blueprint (125 Questions, 4 Hours) and CEH Practical (6 Hours).",
     faqs: [
       {
-        question: "Does this course require prior coding experience?",
-        answer: "No deep programming background is required, though basic scripting (Bash or Python) and command line familiarity will help you get the most out of the exercises.",
+        question: "Does this course cover all 20 official CEH v13 modules?",
+        answer: "Yes. CyberBodha strictly follows the complete official 20-module sequence established by EC-Council for CEH v13, covering everything from ethical foundations to IoT/OT, cloud platforms, and advanced cryptography.",
       },
       {
-        question: "How is AI integrated into the curriculum?",
-        answer: "We demonstrate how modern security analysts use AI models responsibly for analyzing code, accelerating reconnaissance synthesis, and drafting technical remediation reports.",
+        question: "How is Artificial Intelligence (AI) integrated into this CEH v13 course?",
+        answer: "CEH v13 incorporates AI across two fronts: using AI tools to accelerate ethical hacking tasks (code auditing, recon synthesis, payload variation, report generation) and evaluating threats from adversarial AI (deepfake social engineering, automated scanners, prompt injection vulnerabilities).",
       },
       {
-        question: "Are all testing activities conducted legally?",
-        answer: "Yes. 100% of testing is conducted inside strictly isolated, authorized virtual laboratory networks.",
+        question: "Does CyberBodha provide hands-on lab access for all 20 modules?",
+        answer: "Yes. Every module is paired with virtual Cyber Range exercises hosted in isolated sandbox topologies mirroring enterprise corporate networks, cloud platforms, and industrial control environments.",
+      },
+      {
+        question: "Are certification exams included with this training?",
+        answer: "The course delivers comprehensive curriculum preparation and practical range experience aligned with the official CEH v13 examination. Certification vouchers and proctored exam sessions are administered through official EC-Council testing channels.",
+      },
+      {
+        question: "What are the recommended prerequisites?",
+        answer: "Basic networking fundamentals (TCP/IP, subnetting) and familiarity with Linux/Windows command line navigation. No advanced programming is required.",
       },
     ],
     featured: true,
     published: true,
-    badge: "Most Popular",
+    badge: "Official 20 Modules Aligned",
     relatedCourseSlugs: ["vapt-professional", "linux-networking-cybersecurity", "cybersecurity-career-accelerator"],
   },
   {
