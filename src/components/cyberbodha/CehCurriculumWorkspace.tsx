@@ -31,7 +31,10 @@ import {
   type ContentClassification,
 } from "@/data/ceh-v13-curriculum";
 
-const CLASSIFICATION_COLORS: Record<ContentClassification, { bg: string; text: string; border: string }> = {
+const CLASSIFICATION_COLORS: Record<
+  ContentClassification,
+  { bg: string; text: string; border: string }
+> = {
   "Official Curriculum Mapping": {
     bg: "bg-blue-500/10",
     text: "text-blue-500",
@@ -65,7 +68,8 @@ const CLASSIFICATION_COLORS: Record<ContentClassification, { bg: string; text: s
 };
 
 export function ClassificationBadge({ classification }: { classification: ContentClassification }) {
-  const style = CLASSIFICATION_COLORS[classification] || CLASSIFICATION_COLORS["Official Curriculum Mapping"];
+  const style =
+    CLASSIFICATION_COLORS[classification] || CLASSIFICATION_COLORS["Official Curriculum Mapping"];
   return (
     <span
       className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-semibold tracking-wide border ${style.bg} ${style.text} ${style.border}`}
@@ -144,7 +148,10 @@ export function CehCurriculumWorkspace() {
         m.officialNumber.toLowerCase().includes(q) ||
         m.description.toLowerCase().includes(q) ||
         m.officialTopics.some((t) => t.toLowerCase().includes(q)) ||
-        m.guidedLabs.some((l) => l.title.toLowerCase().includes(q) || l.tools.some((t) => t.toLowerCase().includes(q)));
+        m.guidedLabs.some(
+          (l) =>
+            l.title.toLowerCase().includes(q) || l.tools.some((t) => t.toLowerCase().includes(q)),
+        );
       return matchCat && matchQuery;
     });
   }, [selectedCategory, searchQuery]);
@@ -165,7 +172,13 @@ export function CehCurriculumWorkspace() {
               Official 20-Module Ethical Hacking & AI Syllabus
             </h2>
             <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-              Every official module from <strong className="text-foreground">Module 01 (Introduction to Ethical Hacking)</strong> through <strong className="text-foreground">Module 20 (Cryptography)</strong> is represented with full topical depth, learning objectives, Cyber Range virtual labs, and AI ethical hacking integrations.
+              Every official module from{" "}
+              <strong className="text-foreground">
+                Module 01 (Introduction to Ethical Hacking)
+              </strong>{" "}
+              through <strong className="text-foreground">Module 20 (Cryptography)</strong> is
+              represented with full topical depth, learning objectives, Cyber Range virtual labs,
+              and AI ethical hacking integrations.
             </p>
             <div className="flex flex-wrap items-center gap-3 pt-1">
               <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
@@ -192,9 +205,7 @@ export function CehCurriculumWorkspace() {
             <div className="text-[11px] font-mono font-bold uppercase tracking-wider text-muted-foreground flex items-center justify-center gap-1.5">
               <span>Your Curriculum Progress</span>
             </div>
-            <div className="text-3xl font-bold font-mono text-primary">
-              {progressPct}%
-            </div>
+            <div className="text-3xl font-bold font-mono text-primary">{progressPct}%</div>
             <Progress value={progressPct} className="h-2" />
             <div className="text-[11px] text-muted-foreground flex justify-between">
               <span>{completedCount} of 20 Reviewed</span>
@@ -214,7 +225,8 @@ export function CehCurriculumWorkspace() {
             </h3>
           </div>
           <span className="text-[11px] text-muted-foreground">
-            Clear separation between EC-Council official syllabus mapping and CyberBodha virtual lab enhancements
+            Clear separation between EC-Council official syllabus mapping and CyberBodha virtual lab
+            enhancements
           </span>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
@@ -274,9 +286,17 @@ export function CehCurriculumWorkspace() {
             <AlertTriangle className="h-8 w-8 text-amber-500 mx-auto" />
             <h4 className="text-sm font-bold text-foreground">No matching modules found</h4>
             <p className="text-xs text-muted-foreground max-w-md mx-auto">
-              No module matched your search query &quot;{searchQuery}&quot;. Clear the search filter to display all 20 canonical modules.
+              No module matched your search query &quot;{searchQuery}&quot;. Clear the search filter
+              to display all 20 canonical modules.
             </p>
-            <Button variant="outline" size="sm" onClick={() => { setSearchQuery(""); setSelectedCategory("all"); }}>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => {
+                setSearchQuery("");
+                setSelectedCategory("all");
+              }}
+            >
               Reset Filters
             </Button>
           </div>
@@ -292,8 +312,8 @@ export function CehCurriculumWorkspace() {
                   isCompleted
                     ? "border-emerald-500/40 bg-emerald-500/[0.02]"
                     : isExpanded
-                    ? "border-primary/50 shadow-md"
-                    : "border-border hover:border-border/80"
+                      ? "border-primary/50 shadow-md"
+                      : "border-border hover:border-border/80"
                 }`}
               >
                 {/* Module Bar */}
@@ -352,12 +372,18 @@ export function CehCurriculumWorkspace() {
                       }`}
                       title={isCompleted ? "Mark as unreviewed" : "Mark as reviewed"}
                     >
-                      <CheckCircle2 className={`h-3.5 w-3.5 ${isCompleted ? "text-emerald-400" : "text-muted-foreground"}`} />
+                      <CheckCircle2
+                        className={`h-3.5 w-3.5 ${isCompleted ? "text-emerald-400" : "text-muted-foreground"}`}
+                      />
                       <span>{isCompleted ? "Reviewed" : "Mark Reviewed"}</span>
                     </button>
 
                     <div className="h-8 w-8 rounded-lg bg-secondary/80 text-muted-foreground flex items-center justify-center">
-                      {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                      {isExpanded ? (
+                        <ChevronUp className="h-4 w-4" />
+                      ) : (
+                        <ChevronDown className="h-4 w-4" />
+                      )}
                     </div>
                   </div>
                 </div>
@@ -368,20 +394,37 @@ export function CehCurriculumWorkspace() {
                     {/* Tab Navigation inside Module */}
                     <Tabs defaultValue="topics" className="w-full">
                       <TabsList className="bg-card border border-border p-1 h-auto flex flex-wrap gap-1">
-                        <TabsTrigger value="topics" className="text-xs py-1.5 px-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+                        <TabsTrigger
+                          value="topics"
+                          className="text-xs py-1.5 px-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                        >
                           <BookOpen className="mr-1.5 h-3.5 w-3.5" /> Official Topics & Objectives
                         </TabsTrigger>
-                        <TabsTrigger value="concepts" className="text-xs py-1.5 px-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+                        <TabsTrigger
+                          value="concepts"
+                          className="text-xs py-1.5 px-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                        >
                           <FileText className="mr-1.5 h-3.5 w-3.5" /> Concept Deep-Dive
                         </TabsTrigger>
-                        <TabsTrigger value="labs" className="text-xs py-1.5 px-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
-                          <Terminal className="mr-1.5 h-3.5 w-3.5" /> Cyber Range Labs ({mod.guidedLabs.length})
+                        <TabsTrigger
+                          value="labs"
+                          className="text-xs py-1.5 px-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                        >
+                          <Terminal className="mr-1.5 h-3.5 w-3.5" /> Cyber Range Labs (
+                          {mod.guidedLabs.length})
                         </TabsTrigger>
-                        <TabsTrigger value="ai" className="text-xs py-1.5 px-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+                        <TabsTrigger
+                          value="ai"
+                          className="text-xs py-1.5 px-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                        >
                           <Bot className="mr-1.5 h-3.5 w-3.5" /> AI Security Features
                         </TabsTrigger>
-                        <TabsTrigger value="checks" className="text-xs py-1.5 px-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
-                          <HelpCircle className="mr-1.5 h-3.5 w-3.5" /> Knowledge Checks ({mod.knowledgeChecks.length})
+                        <TabsTrigger
+                          value="checks"
+                          className="text-xs py-1.5 px-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                        >
+                          <HelpCircle className="mr-1.5 h-3.5 w-3.5" /> Knowledge Checks (
+                          {mod.knowledgeChecks.length})
                         </TabsTrigger>
                       </TabsList>
 
@@ -397,7 +440,10 @@ export function CehCurriculumWorkspace() {
                           </div>
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                             {mod.learningObjectives.map((obj, i) => (
-                              <div key={i} className="flex items-start gap-2.5 rounded-lg border border-border bg-card p-3 text-xs leading-relaxed">
+                              <div
+                                key={i}
+                                className="flex items-start gap-2.5 rounded-lg border border-border bg-card p-3 text-xs leading-relaxed"
+                              >
                                 <Check className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" />
                                 <span className="text-foreground/90 font-medium">{obj}</span>
                               </div>
@@ -409,13 +455,17 @@ export function CehCurriculumWorkspace() {
                         <div className="space-y-2.5 pt-2">
                           <div className="flex items-center justify-between">
                             <h4 className="text-xs font-bold uppercase tracking-wider text-primary flex items-center gap-1.5">
-                              <BookOpen className="h-3.5 w-3.5" /> Official Curriculum Topics (EC-Council CEH v13)
+                              <BookOpen className="h-3.5 w-3.5" /> Official Curriculum Topics
+                              (EC-Council CEH v13)
                             </h4>
                             <ClassificationBadge classification="Official Curriculum Mapping" />
                           </div>
                           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 list-none p-0">
                             {mod.officialTopics.map((top, i) => (
-                              <li key={i} className="rounded-lg border border-border/80 bg-card/60 p-3 text-xs flex items-center gap-2">
+                              <li
+                                key={i}
+                                className="rounded-lg border border-border/80 bg-card/60 p-3 text-xs flex items-center gap-2"
+                              >
                                 <span className="h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
                                 <span className="text-foreground font-medium">{top}</span>
                               </li>
@@ -430,13 +480,20 @@ export function CehCurriculumWorkspace() {
                           </h4>
                           <div className="space-y-2">
                             {mod.lessons.map((les) => (
-                              <div key={les.id} className="rounded-lg border border-border bg-card p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                              <div
+                                key={les.id}
+                                className="rounded-lg border border-border bg-card p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2"
+                              >
                                 <div className="space-y-0.5">
                                   <div className="flex items-center gap-2">
-                                    <span className="text-xs font-bold text-foreground">{les.title}</span>
+                                    <span className="text-xs font-bold text-foreground">
+                                      {les.title}
+                                    </span>
                                     <ClassificationBadge classification={les.classification} />
                                   </div>
-                                  <p className="text-[11px] text-muted-foreground">{les.description}</p>
+                                  <p className="text-[11px] text-muted-foreground">
+                                    {les.description}
+                                  </p>
                                 </div>
                                 <div className="text-[10px] font-mono text-muted-foreground whitespace-nowrap self-start sm:self-center">
                                   ~{les.durationMin} min
@@ -482,7 +539,10 @@ export function CehCurriculumWorkspace() {
                         </div>
 
                         {mod.guidedLabs.map((lab) => (
-                          <div key={lab.id} className="rounded-xl border border-emerald-500/30 bg-card p-5 space-y-3">
+                          <div
+                            key={lab.id}
+                            className="rounded-xl border border-emerald-500/30 bg-card p-5 space-y-3"
+                          >
                             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border pb-3">
                               <div>
                                 <span className="text-[10px] font-mono uppercase text-emerald-500 font-bold block">
@@ -549,12 +609,16 @@ export function CehCurriculumWorkspace() {
                           </div>
 
                           <p className="text-xs text-muted-foreground leading-relaxed">
-                            How ethical hackers leverage AI tools responsibly to automate tasks in this module, while defending against adversarial AI threats:
+                            How ethical hackers leverage AI tools responsibly to automate tasks in
+                            this module, while defending against adversarial AI threats:
                           </p>
 
                           <div className="space-y-2 pt-1">
                             {mod.aiAssistantFeatures.map((feat, fidx) => (
-                              <div key={fidx} className="flex items-start gap-2.5 rounded-lg border border-purple-500/20 bg-card p-3 text-xs">
+                              <div
+                                key={fidx}
+                                className="flex items-start gap-2.5 rounded-lg border border-purple-500/20 bg-card p-3 text-xs"
+                              >
                                 <Sparkles className="h-3.5 w-3.5 text-purple-400 shrink-0 mt-0.5" />
                                 <span className="text-foreground/90 font-medium">{feat}</span>
                               </div>
@@ -578,7 +642,10 @@ export function CehCurriculumWorkspace() {
                           const isRevealed = userSelected !== undefined && userSelected !== null;
 
                           return (
-                            <div key={kc.id} className="rounded-xl border border-border bg-card p-5 space-y-3">
+                            <div
+                              key={kc.id}
+                              className="rounded-xl border border-border bg-card p-5 space-y-3"
+                            >
                               <h4 className="text-xs sm:text-sm font-bold text-foreground">
                                 {kc.question}
                               </h4>
@@ -588,14 +655,18 @@ export function CehCurriculumWorkspace() {
                                   const isCorrect = oidx === kc.answerIndex;
                                   const isSelected = userSelected === oidx;
 
-                                  let optClass = "border-border bg-background hover:bg-secondary/50 text-foreground";
+                                  let optClass =
+                                    "border-border bg-background hover:bg-secondary/50 text-foreground";
                                   if (isRevealed) {
                                     if (isCorrect) {
-                                      optClass = "border-emerald-500 bg-emerald-500/10 text-emerald-400 font-semibold";
+                                      optClass =
+                                        "border-emerald-500 bg-emerald-500/10 text-emerald-400 font-semibold";
                                     } else if (isSelected) {
-                                      optClass = "border-destructive bg-destructive/10 text-destructive";
+                                      optClass =
+                                        "border-destructive bg-destructive/10 text-destructive";
                                     } else {
-                                      optClass = "border-border/50 text-muted-foreground opacity-60";
+                                      optClass =
+                                        "border-border/50 text-muted-foreground opacity-60";
                                     }
                                   }
 
@@ -603,11 +674,15 @@ export function CehCurriculumWorkspace() {
                                     <button
                                       key={oidx}
                                       disabled={isRevealed}
-                                      onClick={() => setRevealedQuiz((prev) => ({ ...prev, [kc.id]: oidx }))}
+                                      onClick={() =>
+                                        setRevealedQuiz((prev) => ({ ...prev, [kc.id]: oidx }))
+                                      }
                                       className={`w-full text-left p-3 rounded-lg border text-xs transition-colors flex items-center justify-between ${optClass}`}
                                     >
                                       <span>{opt}</span>
-                                      {isRevealed && isCorrect && <Check className="h-4 w-4 text-emerald-400" />}
+                                      {isRevealed && isCorrect && (
+                                        <Check className="h-4 w-4 text-emerald-400" />
+                                      )}
                                     </button>
                                   );
                                 })}
@@ -617,7 +692,9 @@ export function CehCurriculumWorkspace() {
                                 <div className="rounded-lg bg-secondary/80 p-3 border border-border/80 text-xs text-muted-foreground leading-relaxed mt-2 flex items-start gap-2">
                                   <Sparkles className="h-4 w-4 text-primary shrink-0 mt-0.5" />
                                   <div>
-                                    <strong className="text-foreground block mb-0.5">Explanation:</strong>
+                                    <strong className="text-foreground block mb-0.5">
+                                      Explanation:
+                                    </strong>
                                     {kc.explanation}
                                   </div>
                                 </div>
@@ -627,7 +704,8 @@ export function CehCurriculumWorkspace() {
                         })}
 
                         <div className="rounded-lg bg-card border border-border p-3 text-xs text-muted-foreground">
-                          <strong className="text-foreground">Module Assessment Standard:</strong> {mod.moduleAssessment}
+                          <strong className="text-foreground">Module Assessment Standard:</strong>{" "}
+                          {mod.moduleAssessment}
                         </div>
                       </TabsContent>
                     </Tabs>
