@@ -20,6 +20,7 @@ import { AcademyHeader } from "@/components/cyberbodha/AcademyHeader";
 import { AcademyFooter } from "@/components/cyberbodha/AcademyFooter";
 import { CourseCard } from "@/components/cyberbodha/CourseCard";
 import { CourseEnquiryModal } from "@/components/cyberbodha/CourseEnquiryModal";
+import { CehCurriculumWorkspace } from "@/components/cyberbodha/CehCurriculumWorkspace";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -270,55 +271,59 @@ function CourseDetailPage() {
                 </div>
               </div>
 
-              {/* Curriculum Accordion */}
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-wider">
-                      <BookOpen className="h-4 w-4" />
-                      <span>COURSE STRUCTURE</span>
+              {/* Curriculum Section */}
+              {course.slug === "ceh-v13-ai-ethical-hacking" ? (
+                <CehCurriculumWorkspace />
+              ) : (
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-wider">
+                        <BookOpen className="h-4 w-4" />
+                        <span>COURSE STRUCTURE</span>
+                      </div>
+                      <h2 className="text-2xl font-bold text-foreground mt-1">Detailed Curriculum</h2>
                     </div>
-                    <h2 className="text-2xl font-bold text-foreground mt-1">Detailed Curriculum</h2>
+                    <Badge variant="outline" className="text-xs">
+                      {course.curriculum.length} Modules
+                    </Badge>
                   </div>
-                  <Badge variant="outline" className="text-xs">
-                    {course.curriculum.length} Modules
-                  </Badge>
+
+                  <p className="text-xs text-muted-foreground">
+                    Each module combines conceptual explanations with hands-on exercises in the Cyber Range.
+                  </p>
+
+                  <Accordion type="single" collapsible defaultValue="item-0" className="w-full space-y-3 pt-2">
+                    {course.curriculum.map((mod, idx) => (
+                      <AccordionItem key={idx} value={`item-${idx}`} className="rounded-xl border border-border bg-card px-4 py-1">
+                        <AccordionTrigger className="text-sm font-bold text-foreground hover:no-underline hover:text-primary py-3">
+                          <div className="flex items-center gap-3 text-left">
+                            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-secondary text-[11px] font-bold text-secondary-foreground">
+                              {idx + 1}
+                            </span>
+                            <span>{mod.title}</span>
+                          </div>
+                        </AccordionTrigger>
+                        <AccordionContent className="pt-1 pb-4 text-xs text-muted-foreground space-y-3">
+                          <p className="leading-relaxed text-foreground/90">
+                            {mod.description}
+                          </p>
+                          <div>
+                            <span className="font-semibold text-foreground text-[11px] block mb-1.5">Core Topics Covered:</span>
+                            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 list-inside list-disc">
+                              {mod.topics.map((t, tidx) => (
+                                <li key={tidx} className="text-muted-foreground">
+                                  {t}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
                 </div>
-
-                <p className="text-xs text-muted-foreground">
-                  Each module combines conceptual explanations with hands-on exercises in the Cyber Range.
-                </p>
-
-                <Accordion type="single" collapsible defaultValue="item-0" className="w-full space-y-3 pt-2">
-                  {course.curriculum.map((mod, idx) => (
-                    <AccordionItem key={idx} value={`item-${idx}`} className="rounded-xl border border-border bg-card px-4 py-1">
-                      <AccordionTrigger className="text-sm font-bold text-foreground hover:no-underline hover:text-primary py-3">
-                        <div className="flex items-center gap-3 text-left">
-                          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-secondary text-[11px] font-bold text-secondary-foreground">
-                            {idx + 1}
-                          </span>
-                          <span>{mod.title}</span>
-                        </div>
-                      </AccordionTrigger>
-                      <AccordionContent className="pt-1 pb-4 text-xs text-muted-foreground space-y-3">
-                        <p className="leading-relaxed text-foreground/90">
-                          {mod.description}
-                        </p>
-                        <div>
-                          <span className="font-semibold text-foreground text-[11px] block mb-1.5">Core Topics Covered:</span>
-                          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 list-inside list-disc">
-                            {mod.topics.map((t, tidx) => (
-                              <li key={tidx} className="text-muted-foreground">
-                                {t}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </div>
+              )}
 
               {/* Practical Lab Highlights */}
               <div className="space-y-4 rounded-2xl border border-primary/20 bg-card p-6 sm:p-8">
