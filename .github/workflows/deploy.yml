@@ -18,8 +18,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  validate-and-build:
-    name: Validate, Typecheck, Test & Build
+  validate-build-and-deploy:
+    name: Validate, Build & Deploy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -52,6 +52,7 @@ jobs:
           test -f .output/server/index.mjs || { echo "Missing .output/server/index.mjs"; exit 1; }
           test -f .output/server/wrangler.json || { echo "Missing .output/server/wrangler.json"; exit 1; }
           test -d .output/public || { echo "Missing .output/public directory"; exit 1; }
+          test -f wrangler.jsonc || { echo "Missing wrangler.jsonc"; exit 1; }
           echo "Verified Cloudflare deployment artifacts successfully."
 
       - name: Upload build artifacts
@@ -65,16 +66,8 @@ jobs:
             wrangler.jsonc
           retention-days: 1
 
-  deploy:
-    name: Deploy to Cloudflare Workers
-    needs: validate-and-build
-    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
       - name: Verify Cloudflare secrets presence
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         run: |
           if [ -z "${{ secrets.CLOUDFLARE_API_TOKEN }}" ]; then
             echo "ERROR: CLOUDFLARE_API_TOKEN secret is empty or not configured!"
@@ -86,20 +79,8 @@ jobs:
           fi
           echo "Cloudflare deployment secrets are configured."
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: cloudflare-worker-build
-          path: .
-
-      - name: Verify build artifacts on deploy runner
-        run: |
-          test -f .output/server/index.mjs || { echo "Missing .output/server/index.mjs"; exit 1; }
-          test -d .output/public || { echo "Missing .output/public directory"; exit 1; }
-          test -f wrangler.jsonc || { echo "Missing wrangler.jsonc"; exit 1; }
-          echo "Build artifacts verified on deploy runner."
-
       - name: Deploy to Cloudflare Workers
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         id: deploy
         uses: cloudflare/wrangler-action@v3
         with:
@@ -110,7 +91,7 @@ jobs:
           command: deploy
 
       - name: Print deployment error log on failure
-        if: failure()
+        if: failure() && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         run: |
           echo "=== Wrangler stdout ==="
           echo "${{ steps.deploy.outputs.command-output }}"
@@ -118,13 +99,20 @@ jobs:
           echo "${{ steps.deploy.outputs.command-stderr }}"
 
       - name: Post-deployment HTTP health check
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         run: |
-          echo "Waiting 10s for edge propagation..."
-          sleep 10
+          echo "Waiting 15s for edge propagation..."
+          sleep 15
           STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://cyberbodha.com)
           echo "Production apex endpoint returned HTTP $STATUS"
           if [ "$STATUS" -ne 200 ]; then
             echo "Health check failed: expected HTTP 200, got $STATUS"
             exit 1
           fi
-          echo "Post-deployment health check passed successfully."
+          CEH_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://cyberbodha.com/courses/ceh-v13-ai-ethical-hacking)
+          echo "CEH course endpoint returned HTTP $CEH_STATUS"
+          if [ "$CEH_STATUS" -ne 200 ]; then
+            echo "Health check failed: expected HTTP 200 for CEH course, got $CEH_STATUS"
+            exit 1
+          fi
+          echo "Post-deployment health checks passed successfully."
