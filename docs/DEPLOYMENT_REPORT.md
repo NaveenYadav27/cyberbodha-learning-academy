@@ -15,15 +15,16 @@
 ### Repository B (`cyberbodha-bm/cyberbodha-website.git`)
 - **Remote:** `cyberbodha-bm` $\rightarrow$ `https://github.com/cyberbodha-bm/cyberbodha-website.git`
 - **Active Branch:** `feat/ceh-v13-curriculum-alignment-repo-b`
-- **HEAD Commit SHA:** `0c3e1ee`
+- **HEAD Commit SHA:** `7ca3926`
 - **Upstream Tracking:** `cyberbodha-bm/feat/ceh-v13-curriculum-alignment-repo-b`
-- **Pull Request Creation Link:**
-  `https://github.com/cyberbodha-bm/cyberbodha-website/compare/main...feat/ceh-v13-curriculum-alignment-repo-b?expand=1`
+- **Pull Request:** [PR #1](https://github.com/cyberbodha-bm/cyberbodha-website/pull/1)
+- **CI Workflow Run:** [Run #43683327043](https://github.com/cyberbodha-bm/cyberbodha-website/actions/runs/43683327043)
+- **CI Status:** **`SUCCESS`** (100% Green)
 
 ### Repository A (`NaveenYadav27/cyberbodha-learning-academy.git`)
 - **Remote:** `origin` $\rightarrow$ `https://github.com/NaveenYadav27/cyberbodha-learning-academy.git`
 - **Active Branch:** `feat/ceh-v13-curriculum-alignment-repo-a`
-- **HEAD Commit SHA:** `ae39dec`
+- **HEAD Commit SHA:** `2c1065b`
 - **Upstream Tracking:** `origin/feat/ceh-v13-curriculum-alignment-repo-a`
 - **Pull Request Creation Link:**
   `https://github.com/NaveenYadav27/cyberbodha-learning-academy/compare/main...feat/ceh-v13-curriculum-alignment-repo-a?expand=1`
