@@ -47,7 +47,12 @@ export interface CehModule {
   number: number;
   officialNumber: string; // e.g. "Module 01"
   officialTitle: string;
-  category: "Foundations & Recon" | "Network & System Exploitation" | "Offensive Web & Apps" | "Specialized Platforms & Cloud" | "Defensive Defense & Crypto";
+  category:
+    | "Foundations & Recon"
+    | "Network & System Exploitation"
+    | "Offensive Web & Apps"
+    | "Specialized Platforms & Cloud"
+    | "Defensive Defense & Crypto";
   durationHours: number;
   description: string;
   classification: ContentClassification;
@@ -81,7 +86,8 @@ export const CEH_V13_MODULES: CehModule[] = [
     officialTitle: "Introduction to Ethical Hacking",
     category: "Foundations & Recon",
     durationHours: 2,
-    description: "Foundational concepts of information security, ethical boundaries, the cyber kill chain, legal frameworks, and how AI is altering the threat landscape.",
+    description:
+      "Foundational concepts of information security, ethical boundaries, the cyber kill chain, legal frameworks, and how AI is altering the threat landscape.",
     classification: "Official Curriculum Mapping",
     learningObjectives: [
       "Distinguish between black-hat, white-hat, and grey-hat methodologies",
@@ -101,27 +107,31 @@ export const CEH_V13_MODULES: CehModule[] = [
       {
         id: "l01-1",
         title: "Ethical Hacking Principles & Legal Mandates",
-        description: "Understanding legal authorizations, NDAs, and liabilities prior to security assessments.",
+        description:
+          "Understanding legal authorizations, NDAs, and liabilities prior to security assessments.",
         durationMin: 35,
         classification: "CyberBodha Explanation",
       },
       {
         id: "l01-2",
         title: "The 5 Phases of an Offensive Engagement",
-        description: "Reconnaissance, Scanning, Gaining Access, Maintaining Access, and Clearing Tracks.",
+        description:
+          "Reconnaissance, Scanning, Gaining Access, Maintaining Access, and Clearing Tracks.",
         durationMin: 45,
         classification: "Official Curriculum Mapping",
       },
       {
         id: "l01-3",
         title: "AI Integration in Attack and Defense Lifecycles",
-        description: "How automated threat agents and LLM-assisted security testing change engagement velocity.",
+        description:
+          "How automated threat agents and LLM-assisted security testing change engagement velocity.",
         durationMin: 40,
         classification: "AI-Assisted Explanation",
         aiWorkflow: "Generating structured Rules of Engagement (RoE) templates using AI prompts.",
       },
     ],
-    conceptExplanation: "Ethical hacking is authorized probing of digital assets to discover vulnerabilities and validate security controls. In CEH v13, ethical hacking integrates AI assistance to model sophisticated adversary behaviors while upholding strict legal compliance.",
+    conceptExplanation:
+      "Ethical hacking is authorized probing of digital assets to discover vulnerabilities and validate security controls. In CEH v13, ethical hacking integrates AI assistance to model sophisticated adversary behaviors while upholding strict legal compliance.",
     aiAssistantFeatures: [
       "Automated Rules of Engagement (RoE) scope verification",
       "AI-driven regulatory compliance cross-referencing (HIPAA, GDPR, DPDP)",
@@ -132,7 +142,8 @@ export const CEH_V13_MODULES: CehModule[] = [
         id: "lab-01",
         title: "Setting Up the Cyber Range & Kali Linux Testing Machine",
         environment: "Cyber Range Kali Linux Container",
-        scenario: "Configure an isolated offensive assessment sandbox, verify egress rules, and establish encrypted workspace persistence.",
+        scenario:
+          "Configure an isolated offensive assessment sandbox, verify egress rules, and establish encrypted workspace persistence.",
         tools: ["Kali Linux 2026", "OpenVPN", "ProxyChains"],
         classification: "CyberBodha Supplementary Lab",
         isAiEnhanced: false,
@@ -145,7 +156,8 @@ export const CEH_V13_MODULES: CehModule[] = [
     knowledgeChecks: [
       {
         id: "qc-01",
-        question: "Which document legally protects an ethical hacker from criminal prosecution during an authorized engagement?",
+        question:
+          "Which document legally protects an ethical hacker from criminal prosecution during an authorized engagement?",
         options: [
           "Non-Disclosure Agreement (NDA)",
           "Signed Rules of Engagement (RoE) & Scope Authorization Document",
@@ -153,12 +165,14 @@ export const CEH_V13_MODULES: CehModule[] = [
           "Service Level Agreement (SLA)",
         ],
         answerIndex: 1,
-        explanation: "A written and signed Rules of Engagement (RoE) detailing testing boundaries and formal authorization protects the ethical hacker from legal liabilities.",
+        explanation:
+          "A written and signed Rules of Engagement (RoE) detailing testing boundaries and formal authorization protects the ethical hacker from legal liabilities.",
         classification: "Practice Assessment",
       },
     ],
     moduleAssessment: "Legal compliance check and engagement authorization diagnostic challenge.",
-    summary: "Establishes legal boundaries, hacker taxonomies, cyber kill chain stages, and initial setup of the Cyber Range virtual testing environment.",
+    summary:
+      "Establishes legal boundaries, hacker taxonomies, cyber kill chain stages, and initial setup of the Cyber Range virtual testing environment.",
   },
   {
     number: 2,
@@ -166,7 +180,8 @@ export const CEH_V13_MODULES: CehModule[] = [
     officialTitle: "Footprinting and Reconnaissance",
     category: "Foundations & Recon",
     durationHours: 2.5,
-    description: "Systematic information gathering using passive OSINT, search engine dorking, DNS harvesting, and AI-accelerated intelligence gathering.",
+    description:
+      "Systematic information gathering using passive OSINT, search engine dorking, DNS harvesting, and AI-accelerated intelligence gathering.",
     classification: "Official Curriculum Mapping",
     learningObjectives: [
       "Execute passive OSINT workflows without triggering client defensive telemetry",
@@ -201,13 +216,16 @@ export const CEH_V13_MODULES: CehModule[] = [
       {
         id: "l02-3",
         title: "AI-Powered Reconnaissance Intelligence",
-        description: "Using AI to parse leaked credential databases and cluster corporate subdomains.",
+        description:
+          "Using AI to parse leaked credential databases and cluster corporate subdomains.",
         durationMin: 35,
         classification: "AI-Assisted Explanation",
-        aiWorkflow: "Parsing thousands of certificate transparency logs to identify staging and dev infrastructure.",
+        aiWorkflow:
+          "Parsing thousands of certificate transparency logs to identify staging and dev infrastructure.",
       },
     ],
-    conceptExplanation: "Footprinting gathers actionable intelligence about a target's perimeter, employee exposure, and digital infrastructure. Passive reconnaissance leaves zero trace on target loggers, while active reconnaissance directly interacts with target DNS and perimeter routers.",
+    conceptExplanation:
+      "Footprinting gathers actionable intelligence about a target's perimeter, employee exposure, and digital infrastructure. Passive reconnaissance leaves zero trace on target loggers, while active reconnaissance directly interacts with target DNS and perimeter routers.",
     aiAssistantFeatures: [
       "Automated extraction of employee email patterns and organizational hierarchies from public data",
       "AI-assisted Shodan dork composition targeting vulnerable infrastructure",
@@ -218,7 +236,8 @@ export const CEH_V13_MODULES: CehModule[] = [
         id: "lab-02",
         title: "Comprehensive OSINT Investigation on Corporate Target",
         environment: "Cyber Range Terminal & Recon Suite",
-        scenario: "Harvest subdomains, identify MX records, query historical DNS changes, and locate exposed git repositories.",
+        scenario:
+          "Harvest subdomains, identify MX records, query historical DNS changes, and locate exposed git repositories.",
         tools: ["theHarvester", "Amass", "whois", "dig", "Shodan CLI"],
         classification: "CyberBodha Supplementary Lab",
         isAiEnhanced: true,
@@ -231,15 +250,18 @@ export const CEH_V13_MODULES: CehModule[] = [
     knowledgeChecks: [
       {
         id: "qc-02",
-        question: "Which of the following DNS records should an ethical hacker query to uncover potential mail server exposure?",
+        question:
+          "Which of the following DNS records should an ethical hacker query to uncover potential mail server exposure?",
         options: ["PTR Record", "MX Record", "TXT SPF Record only", "SOA Record only"],
         answerIndex: 1,
-        explanation: "MX (Mail Exchange) records designate the mail servers responsible for accepting email on behalf of a domain.",
+        explanation:
+          "MX (Mail Exchange) records designate the mail servers responsible for accepting email on behalf of a domain.",
         classification: "Practice Assessment",
       },
     ],
     moduleAssessment: "Target asset inventory reconstruction through hands-on OSINT validation.",
-    summary: "Covers passive intelligence, search operators, DNS interrogation, Shodan queries, and AI-accelerated target profile generation.",
+    summary:
+      "Covers passive intelligence, search operators, DNS interrogation, Shodan queries, and AI-accelerated target profile generation.",
   },
   {
     number: 3,
@@ -247,7 +269,8 @@ export const CEH_V13_MODULES: CehModule[] = [
     officialTitle: "Scanning Networks",
     category: "Foundations & Recon",
     durationHours: 2.5,
-    description: "Network probing techniques, host discovery, TCP/UDP port scanning, OS fingerprinting, IDS evasion scans, and automated network mapping.",
+    description:
+      "Network probing techniques, host discovery, TCP/UDP port scanning, OS fingerprinting, IDS evasion scans, and automated network mapping.",
     classification: "Official Curriculum Mapping",
     learningObjectives: [
       "Master TCP three-way handshake manipulation (SYN, ACK, FIN, Xmas, Null scans)",
@@ -267,27 +290,32 @@ export const CEH_V13_MODULES: CehModule[] = [
       {
         id: "l03-1",
         title: "TCP/IP Header Manipulation & Scanning Types",
-        description: "Deep dive into TCP flags and how firewalls respond to unexpected flag combinations.",
+        description:
+          "Deep dive into TCP flags and how firewalls respond to unexpected flag combinations.",
         durationMin: 50,
         classification: "Official Curriculum Mapping",
       },
       {
         id: "l03-2",
         title: "Nmap Mastery & Advanced NSE Scripting",
-        description: "Constructing custom Nmap commands for stealth, speed, and deep protocol dissection.",
+        description:
+          "Constructing custom Nmap commands for stealth, speed, and deep protocol dissection.",
         durationMin: 50,
         classification: "CyberBodha Explanation",
       },
       {
         id: "l03-3",
         title: "AI-Augmented Anomaly & Scanning Detection",
-        description: "How modern network behavioral monitors detect port scans and how testers simulate evasion.",
+        description:
+          "How modern network behavioral monitors detect port scans and how testers simulate evasion.",
         durationMin: 30,
         classification: "AI-Assisted Explanation",
-        aiWorkflow: "Synthesizing custom Nmap NSE scripts using AI to probe uncommon proprietary ports.",
+        aiWorkflow:
+          "Synthesizing custom Nmap NSE scripts using AI to probe uncommon proprietary ports.",
       },
     ],
-    conceptExplanation: "Scanning is the transition from intelligence gathering to active network probing. It reveals live hosts, open ports, service versions, and system fingerprints while evaluating how defensive filters handle anomalous packet traffic.",
+    conceptExplanation:
+      "Scanning is the transition from intelligence gathering to active network probing. It reveals live hosts, open ports, service versions, and system fingerprints while evaluating how defensive filters handle anomalous packet traffic.",
     aiAssistantFeatures: [
       "AI generation of complex Nmap timing, decoy, and rate-limiting flags",
       "Automated conversion of raw Nmap XML output into prioritized attack surface matrices",
@@ -298,7 +326,8 @@ export const CEH_V13_MODULES: CehModule[] = [
         id: "lab-03",
         title: "Enterprise Perimeter & Subnet Discovery Scanning",
         environment: "Multi-Subnet Cyber Range Topology",
-        scenario: "Execute stealth SYN scans, identify hidden services behind NAT firewalls, and evade simple snort detection rules.",
+        scenario:
+          "Execute stealth SYN scans, identify hidden services behind NAT firewalls, and evade simple snort detection rules.",
         tools: ["Nmap", "Masscan", "Hping3", "Wireshark"],
         classification: "CyberBodha Supplementary Lab",
         isAiEnhanced: true,
@@ -311,15 +340,18 @@ export const CEH_V13_MODULES: CehModule[] = [
     knowledgeChecks: [
       {
         id: "qc-03",
-        question: "In an Nmap SYN Stealth Scan (-sS), what packet is sent back by the scanner after receiving a SYN/ACK from an open port?",
+        question:
+          "In an Nmap SYN Stealth Scan (-sS), what packet is sent back by the scanner after receiving a SYN/ACK from an open port?",
         options: ["ACK packet", "RST packet", "FIN packet", "No response is transmitted"],
         answerIndex: 1,
-        explanation: "In a SYN scan, the scanner transmits an RST (Reset) packet immediately upon receiving SYN/ACK to tear down the connection before it fully opens.",
+        explanation:
+          "In a SYN scan, the scanner transmits an RST (Reset) packet immediately upon receiving SYN/ACK to tear down the connection before it fully opens.",
         classification: "Practice Assessment",
       },
     ],
     moduleAssessment: "Full subnet port and service enumeration capstone exercise.",
-    summary: "Teaches packet crafting, flag combinations, stealth port scanning, banner grabbing, and Nmap scripting engine deployment.",
+    summary:
+      "Teaches packet crafting, flag combinations, stealth port scanning, banner grabbing, and Nmap scripting engine deployment.",
   },
   {
     number: 4,
@@ -327,7 +359,8 @@ export const CEH_V13_MODULES: CehModule[] = [
     officialTitle: "Enumeration",
     category: "Foundations & Recon",
     durationHours: 2,
-    description: "Extracting detailed machine data: NetBIOS, SMB shares, SNMP MIB trees, LDAP directories, NFS exports, and SMTP user validation.",
+    description:
+      "Extracting detailed machine data: NetBIOS, SMB shares, SNMP MIB trees, LDAP directories, NFS exports, and SMTP user validation.",
     classification: "Official Curriculum Mapping",
     learningObjectives: [
       "Extract valid user accounts, groups, and shares from SMB and NetBIOS services",
@@ -361,13 +394,16 @@ export const CEH_V13_MODULES: CehModule[] = [
       {
         id: "l04-3",
         title: "AI Analysis of Active Directory Telemetry",
-        description: "Using AI to analyze BloodHound graphs and find shortest paths to Domain Admin.",
+        description:
+          "Using AI to analyze BloodHound graphs and find shortest paths to Domain Admin.",
         durationMin: 35,
         classification: "AI-Assisted Explanation",
-        aiWorkflow: "Automating BloodHound JSON export analysis with AI to identify lateral movement paths.",
+        aiWorkflow:
+          "Automating BloodHound JSON export analysis with AI to identify lateral movement paths.",
       },
     ],
-    conceptExplanation: "Enumeration establishes active connections with target systems to harvest user accounts, network shares, routing tables, and service configurations. It provides the detailed blueprint needed to plan privilege escalation and exploitation.",
+    conceptExplanation:
+      "Enumeration establishes active connections with target systems to harvest user accounts, network shares, routing tables, and service configurations. It provides the detailed blueprint needed to plan privilege escalation and exploitation.",
     aiAssistantFeatures: [
       "AI correlation of enumerated usernames with leaked corporate password patterns",
       "Automated extraction of system usernames from raw RPC and SMB dumps",
@@ -378,7 +414,8 @@ export const CEH_V13_MODULES: CehModule[] = [
         id: "lab-04",
         title: "Active Directory & Linux NFS/SMB Enumeration",
         environment: "Simulated Windows Server & Linux Enterprise Forest",
-        scenario: "Enumerate Domain users, map accessible administrative shares, and query SNMP v2c community strings on target routers.",
+        scenario:
+          "Enumerate Domain users, map accessible administrative shares, and query SNMP v2c community strings on target routers.",
         tools: ["enum4linux-ng", "rpcclient", "snmpwalk", "ldapsearch", "CrackMapExec"],
         classification: "CyberBodha Supplementary Lab",
         isAiEnhanced: true,
@@ -391,15 +428,18 @@ export const CEH_V13_MODULES: CehModule[] = [
     knowledgeChecks: [
       {
         id: "qc-04",
-        question: "Which default SNMP port is probed by attackers to interrogate public community strings via UDP?",
+        question:
+          "Which default SNMP port is probed by attackers to interrogate public community strings via UDP?",
         options: ["Port 161", "Port 162", "Port 389", "Port 445"],
         answerIndex: 0,
-        explanation: "SNMP queries are sent to UDP port 161; SNMP traps are received on UDP port 162.",
+        explanation:
+          "SNMP queries are sent to UDP port 161; SNMP traps are received on UDP port 162.",
         classification: "Practice Assessment",
       },
     ],
     moduleAssessment: "Simulated Domain enumeration and share harvesting scenario.",
-    summary: "Covers deep interrogation of NetBIOS, SMB, RPC, SNMP, LDAP, and Active Directory objects to establish target attack vectors.",
+    summary:
+      "Covers deep interrogation of NetBIOS, SMB, RPC, SNMP, LDAP, and Active Directory objects to establish target attack vectors.",
   },
   {
     number: 5,
@@ -407,7 +447,8 @@ export const CEH_V13_MODULES: CehModule[] = [
     officialTitle: "Vulnerability Analysis",
     category: "Foundations & Recon",
     durationHours: 2,
-    description: "Vulnerability identification, scoring (CVSS v3/v4), weaponization triage, false-positive elimination, and automated scanner orchestration.",
+    description:
+      "Vulnerability identification, scoring (CVSS v3/v4), weaponization triage, false-positive elimination, and automated scanner orchestration.",
     classification: "Official Curriculum Mapping",
     learningObjectives: [
       "Classify vulnerabilities using CVE, CWE, and national vulnerability databases (NVD)",
@@ -427,27 +468,32 @@ export const CEH_V13_MODULES: CehModule[] = [
       {
         id: "l05-1",
         title: "CVSS Architecture & Severity Calculation",
-        description: "Breaking down Attack Vector (AV), Complexity (AC), Privileges Required (PR), and Impact metrics.",
+        description:
+          "Breaking down Attack Vector (AV), Complexity (AC), Privileges Required (PR), and Impact metrics.",
         durationMin: 40,
         classification: "Official Curriculum Mapping",
       },
       {
         id: "l05-2",
         title: "Enterprise Vulnerability Scanning & Management",
-        description: "Configuring credentialed audits, agent-based scans, and policy compliance verification.",
+        description:
+          "Configuring credentialed audits, agent-based scans, and policy compliance verification.",
         durationMin: 45,
         classification: "CyberBodha Explanation",
       },
       {
         id: "l05-3",
         title: "AI-Driven Vulnerability Prioritization",
-        description: "Using AI to cross-reference discovered CVEs with known actively exploited threats (CISA KEV).",
+        description:
+          "Using AI to cross-reference discovered CVEs with known actively exploited threats (CISA KEV).",
         durationMin: 35,
         classification: "AI-Assisted Explanation",
-        aiWorkflow: "Evaluating whether a detected CVE has public weaponized exploit chains using AI intelligence.",
+        aiWorkflow:
+          "Evaluating whether a detected CVE has public weaponized exploit chains using AI intelligence.",
       },
     ],
-    conceptExplanation: "Vulnerability analysis identifies weaknesses in applications, systems, and network designs. Rather than relying solely on automated scan outputs, professional testers validate findings, calculate true business impact, and prioritize remediations.",
+    conceptExplanation:
+      "Vulnerability analysis identifies weaknesses in applications, systems, and network designs. Rather than relying solely on automated scan outputs, professional testers validate findings, calculate true business impact, and prioritize remediations.",
     aiAssistantFeatures: [
       "AI-driven CVSS v4.0 vector scoring and justification drafting",
       "Automated false-positive triage by analyzing service banners against scan signatures",
@@ -458,7 +504,8 @@ export const CEH_V13_MODULES: CehModule[] = [
         id: "lab-05",
         title: "Vulnerability Scanning & Triaging on Unhardened Enterprise Assets",
         environment: "Cyber Range Multi-Tier Application Server",
-        scenario: "Execute credentialed and uncredentialed vulnerability scans, filter noisy false positives, and document critical unpatched CVEs.",
+        scenario:
+          "Execute credentialed and uncredentialed vulnerability scans, filter noisy false positives, and document critical unpatched CVEs.",
         tools: ["OpenVAS / Greenbone", "Nessus Essentials", "Searchsploit", "Vulners"],
         classification: "CyberBodha Supplementary Lab",
         isAiEnhanced: true,
@@ -471,15 +518,23 @@ export const CEH_V13_MODULES: CehModule[] = [
     knowledgeChecks: [
       {
         id: "qc-05",
-        question: "In the CVSS v3.1 scoring standard, which metric captures whether an attacker needs existing credentials to exploit a vulnerability?",
-        options: ["Attack Complexity (AC)", "Privileges Required (PR)", "User Interaction (UI)", "Scope (S)"],
+        question:
+          "In the CVSS v3.1 scoring standard, which metric captures whether an attacker needs existing credentials to exploit a vulnerability?",
+        options: [
+          "Attack Complexity (AC)",
+          "Privileges Required (PR)",
+          "User Interaction (UI)",
+          "Scope (S)",
+        ],
         answerIndex: 1,
-        explanation: "Privileges Required (PR) measures the level of privileges an attacker must possess before successfully exploiting the vulnerability.",
+        explanation:
+          "Privileges Required (PR) measures the level of privileges an attacker must possess before successfully exploiting the vulnerability.",
         classification: "Practice Assessment",
       },
     ],
     moduleAssessment: "Full vulnerability scan triage and executive prioritization exercise.",
-    summary: "Examines vulnerability scoring, scanning frameworks, false positive identification, and AI-accelerated patch prioritization.",
+    summary:
+      "Examines vulnerability scoring, scanning frameworks, false positive identification, and AI-accelerated patch prioritization.",
   },
   {
     number: 6,
@@ -487,7 +542,8 @@ export const CEH_V13_MODULES: CehModule[] = [
     officialTitle: "System Hacking",
     category: "Network & System Exploitation",
     durationHours: 3,
-    description: "Exploiting system vulnerabilities, password cracking, Windows/Linux privilege escalation, persistence mechanisms, and hiding data with steganography.",
+    description:
+      "Exploiting system vulnerabilities, password cracking, Windows/Linux privilege escalation, persistence mechanisms, and hiding data with steganography.",
     classification: "Official Curriculum Mapping",
     learningObjectives: [
       "Execute buffer overflow and memory exploitation fundamentals in a controlled lab",
@@ -508,27 +564,32 @@ export const CEH_V13_MODULES: CehModule[] = [
       {
         id: "l06-1",
         title: "Password Extraction & Hash Cracking Dynamics",
-        description: "SAM database dumping, LSASS memory harvesting, and GPU-accelerated hash cracking.",
+        description:
+          "SAM database dumping, LSASS memory harvesting, and GPU-accelerated hash cracking.",
         durationMin: 55,
         classification: "Official Curriculum Mapping",
       },
       {
         id: "l06-2",
         title: "Windows & Linux Local Privilege Escalation",
-        description: "Exploiting misconfigured permissions, weak services, and kernel vectors to attain SYSTEM/root.",
+        description:
+          "Exploiting misconfigured permissions, weak services, and kernel vectors to attain SYSTEM/root.",
         durationMin: 55,
         classification: "CyberBodha Explanation",
       },
       {
         id: "l06-3",
         title: "AI in Automated Payload Tuning",
-        description: "Using AI to identify syntax modifications that prevent known signatures from matching payloads.",
+        description:
+          "Using AI to identify syntax modifications that prevent known signatures from matching payloads.",
         durationMin: 40,
         classification: "AI-Assisted Explanation",
-        aiWorkflow: "Synthesizing custom PowerShell and C# payload wrappers to evade simple static Defender rules.",
+        aiWorkflow:
+          "Synthesizing custom PowerShell and C# payload wrappers to evade simple static Defender rules.",
       },
     ],
-    conceptExplanation: "System hacking represents the active exploitation phase: cracking authentication, escalating from low-privilege access to administrative control, embedding reliable persistence, and obfuscating evidence of testing.",
+    conceptExplanation:
+      "System hacking represents the active exploitation phase: cracking authentication, escalating from low-privilege access to administrative control, embedding reliable persistence, and obfuscating evidence of testing.",
     aiAssistantFeatures: [
       "AI explanation of complex privilege escalation path findings from WinPEAS and LinPEAS",
       "Assisted customization of public exploit scripts for specific architecture targets",
@@ -539,7 +600,8 @@ export const CEH_V13_MODULES: CehModule[] = [
         id: "lab-06",
         title: "Privilege Escalation and Hash Extraction Lab",
         environment: "Cyber Range Windows 11 & Ubuntu Target Hosts",
-        scenario: "Exploit an unquoted service path on Windows, dump SAM hashes with Mimikatz, and escalate a SUID binary on Linux to gain root shell.",
+        scenario:
+          "Exploit an unquoted service path on Windows, dump SAM hashes with Mimikatz, and escalate a SUID binary on Linux to gain root shell.",
         tools: ["Metasploit", "Mimikatz", "Hashcat", "John the Ripper", "WinPEAS", "LinPEAS"],
         classification: "CyberBodha Supplementary Lab",
         isAiEnhanced: true,
@@ -552,15 +614,18 @@ export const CEH_V13_MODULES: CehModule[] = [
     knowledgeChecks: [
       {
         id: "qc-06",
-        question: "Which Windows tool allows security testers to perform pass-the-hash attacks by extracting credentials from the LSASS process?",
+        question:
+          "Which Windows tool allows security testers to perform pass-the-hash attacks by extracting credentials from the LSASS process?",
         options: ["Nessus", "Mimikatz", "Wireshark", "OpenVAS"],
         answerIndex: 1,
-        explanation: "Mimikatz is an open-source tool capable of extracting plaintext passwords, Kerberos tickets, and NTLM hashes directly from LSASS memory.",
+        explanation:
+          "Mimikatz is an open-source tool capable of extracting plaintext passwords, Kerberos tickets, and NTLM hashes directly from LSASS memory.",
         classification: "Practice Assessment",
       },
     ],
     moduleAssessment: "Full system exploitation, privilege escalation, and persistence scenario.",
-    summary: "Covers password recovery, pass-the-hash, privilege escalation vectors across Windows/Linux, persistence, and audit log management.",
+    summary:
+      "Covers password recovery, pass-the-hash, privilege escalation vectors across Windows/Linux, persistence, and audit log management.",
   },
   {
     number: 7,
@@ -568,7 +633,8 @@ export const CEH_V13_MODULES: CehModule[] = [
     officialTitle: "Malware Threats",
     category: "Network & System Exploitation",
     durationHours: 2.5,
-    description: "Malware architectures: trojans, ransomware, viruses, worms, crypters, fileless malware, static/dynamic reverse engineering, and AI-crafted malware.",
+    description:
+      "Malware architectures: trojans, ransomware, viruses, worms, crypters, fileless malware, static/dynamic reverse engineering, and AI-crafted malware.",
     classification: "Official Curriculum Mapping",
     learningObjectives: [
       "Analyze the infection and execution lifecycle of trojans, ransomware, and rootkits",
@@ -588,7 +654,8 @@ export const CEH_V13_MODULES: CehModule[] = [
       {
         id: "l07-1",
         title: "Malware Taxonomy & Ransomware Dissection",
-        description: "Anatomy of modern ransomware: asymmetric encryption, key exchange, and shadow copy deletion.",
+        description:
+          "Anatomy of modern ransomware: asymmetric encryption, key exchange, and shadow copy deletion.",
         durationMin: 50,
         classification: "Official Curriculum Mapping",
       },
@@ -602,13 +669,16 @@ export const CEH_V13_MODULES: CehModule[] = [
       {
         id: "l07-3",
         title: "AI in Modern Malware Crafting & Defense",
-        description: "How machine learning models are used both to author polymorphic droppers and to detect novel binaries.",
+        description:
+          "How machine learning models are used both to author polymorphic droppers and to detect novel binaries.",
         durationMin: 35,
         classification: "AI-Assisted Explanation",
-        aiWorkflow: "Deobfuscating suspicious PowerShell scripts and extracting C2 IP addresses using LLM analysis.",
+        aiWorkflow:
+          "Deobfuscating suspicious PowerShell scripts and extracting C2 IP addresses using LLM analysis.",
       },
     ],
-    conceptExplanation: "Malware represents malicious software designed to compromise host integrity or confidentiality. Ethical hackers must dissect malware behaviors to understand attacker persistence, communication protocols, and defensive detection signatures.",
+    conceptExplanation:
+      "Malware represents malicious software designed to compromise host integrity or confidentiality. Ethical hackers must dissect malware behaviors to understand attacker persistence, communication protocols, and defensive detection signatures.",
     aiAssistantFeatures: [
       "AI-assisted disassembly and decompilation explanation for C and Go binaries",
       "Automated extraction of indicators of compromise (IOCs) from behavioral sandbox reports",
@@ -619,7 +689,8 @@ export const CEH_V13_MODULES: CehModule[] = [
         id: "lab-07",
         title: "Isolated Sandbox Malware Behavioral Analysis",
         environment: "Isolated Analysis Sandbox VM",
-        scenario: "Execute a simulated trojan binary in an isolated sandbox, trace registry modifications, record outbound C2 beaconing, and extract malware IOCs.",
+        scenario:
+          "Execute a simulated trojan binary in an isolated sandbox, trace registry modifications, record outbound C2 beaconing, and extract malware IOCs.",
         tools: ["Ghidra", "PE-bear", "Process Hacker", "Regshot", "Wireshark", "Cuckoo Sandbox"],
         classification: "CyberBodha Supplementary Lab",
         isAiEnhanced: true,
@@ -632,15 +703,18 @@ export const CEH_V13_MODULES: CehModule[] = [
     knowledgeChecks: [
       {
         id: "qc-07",
-        question: "What term describes malware that operates entirely in volatile system memory (RAM) without writing executable files to disk?",
+        question:
+          "What term describes malware that operates entirely in volatile system memory (RAM) without writing executable files to disk?",
         options: ["Boot Sector Virus", "Fileless Malware", "Macro Trojan", "Stegware"],
         answerIndex: 1,
-        explanation: "Fileless malware executes in RAM using existing system utilities (like PowerShell or WMI) without dropping traditional binaries onto disk.",
+        explanation:
+          "Fileless malware executes in RAM using existing system utilities (like PowerShell or WMI) without dropping traditional binaries onto disk.",
         classification: "Practice Assessment",
       },
     ],
     moduleAssessment: "Malware behavioral analysis and threat intelligence report formulation.",
-    summary: "Explores malware categories, trojans, ransomware, reverse engineering workflows, sandbox execution, and AI malware detection.",
+    summary:
+      "Explores malware categories, trojans, ransomware, reverse engineering workflows, sandbox execution, and AI malware detection.",
   },
   {
     number: 8,
@@ -648,7 +722,8 @@ export const CEH_V13_MODULES: CehModule[] = [
     officialTitle: "Sniffing",
     category: "Network & System Exploitation",
     durationHours: 2,
-    description: "Packet capture, network protocol analysis, ARP poisoning, DHCP starvation, MAC flooding, DNS spoofing, and sniffing countermeasures.",
+    description:
+      "Packet capture, network protocol analysis, ARP poisoning, DHCP starvation, MAC flooding, DNS spoofing, and sniffing countermeasures.",
     classification: "Official Curriculum Mapping",
     learningObjectives: [
       "Differentiate between passive sniffing and active sniffing on switched networks",
@@ -669,27 +744,32 @@ export const CEH_V13_MODULES: CehModule[] = [
       {
         id: "l08-1",
         title: "Switched Network Attack Vectors",
-        description: "Breaking switch isolation through CAM table exhaustion and ARP cache poisoning.",
+        description:
+          "Breaking switch isolation through CAM table exhaustion and ARP cache poisoning.",
         durationMin: 40,
         classification: "Official Curriculum Mapping",
       },
       {
         id: "l08-2",
         title: "Wireshark Packet Analysis & Protocol Decoding",
-        description: "Applying Wireshark display filters to extract credentials, sessions, and transferred binaries.",
+        description:
+          "Applying Wireshark display filters to extract credentials, sessions, and transferred binaries.",
         durationMin: 45,
         classification: "CyberBodha Explanation",
       },
       {
         id: "l08-3",
         title: "AI-Powered Threat Detection in Network Traffic",
-        description: "Leveraging machine learning algorithms to identify beaconing, data exfiltration, and anomalous packet sequences.",
+        description:
+          "Leveraging machine learning algorithms to identify beaconing, data exfiltration, and anomalous packet sequences.",
         durationMin: 35,
         classification: "AI-Assisted Explanation",
-        aiWorkflow: "Writing targeted Wireshark display filters and Zeek scripts using natural language prompts.",
+        aiWorkflow:
+          "Writing targeted Wireshark display filters and Zeek scripts using natural language prompts.",
       },
     ],
-    conceptExplanation: "Sniffing involves capturing network traffic across a wired or wireless transmission medium. While passive sniffing observes hub traffic, active sniffing on modern switches requires packet manipulation such as ARP poisoning or MAC flooding.",
+    conceptExplanation:
+      "Sniffing involves capturing network traffic across a wired or wireless transmission medium. While passive sniffing observes hub traffic, active sniffing on modern switches requires packet manipulation such as ARP poisoning or MAC flooding.",
     aiAssistantFeatures: [
       "AI generation of complex Wireshark display and capture filters",
       "Automated extraction of credentials and session tokens from PCAP capture files",
@@ -700,7 +780,8 @@ export const CEH_V13_MODULES: CehModule[] = [
         id: "lab-08",
         title: "ARP Spoofing and Cleartext Credential Interception",
         environment: "Cyber Range Switched Virtual LAN",
-        scenario: "Execute an ARP poisoning attack between a client and gateway, intercept unencrypted authentication sessions, and evaluate switch port security defenses.",
+        scenario:
+          "Execute an ARP poisoning attack between a client and gateway, intercept unencrypted authentication sessions, and evaluate switch port security defenses.",
         tools: ["Wireshark", "Ettercap", "Bettercap", "Tcpdump", "Macof"],
         classification: "CyberBodha Supplementary Lab",
         isAiEnhanced: false,
@@ -713,15 +794,23 @@ export const CEH_V13_MODULES: CehModule[] = [
     knowledgeChecks: [
       {
         id: "qc-08",
-        question: "Which switch security feature validates ARP packets within an enterprise network to prevent ARP cache poisoning?",
-        options: ["BPDU Guard", "Dynamic ARP Inspection (DAI)", "Spanning Tree Protocol (STP)", "Storm Control"],
+        question:
+          "Which switch security feature validates ARP packets within an enterprise network to prevent ARP cache poisoning?",
+        options: [
+          "BPDU Guard",
+          "Dynamic ARP Inspection (DAI)",
+          "Spanning Tree Protocol (STP)",
+          "Storm Control",
+        ],
         answerIndex: 1,
-        explanation: "Dynamic ARP Inspection (DAI) intercepts and validates all ARP requests and responses, dropping invalid packets based on DHCP snooping bindings.",
+        explanation:
+          "Dynamic ARP Inspection (DAI) intercepts and validates all ARP requests and responses, dropping invalid packets based on DHCP snooping bindings.",
         classification: "Practice Assessment",
       },
     ],
     moduleAssessment: "Man-in-the-Middle credential interception and network telemetry analysis.",
-    summary: "Teaches packet sniffing, switch exploitation, ARP cache manipulation, Wireshark filtering, and enterprise mitigation techniques.",
+    summary:
+      "Teaches packet sniffing, switch exploitation, ARP cache manipulation, Wireshark filtering, and enterprise mitigation techniques.",
   },
   {
     number: 9,
@@ -729,7 +818,8 @@ export const CEH_V13_MODULES: CehModule[] = [
     officialTitle: "Social Engineering",
     category: "Network & System Exploitation",
     durationHours: 2,
-    description: "Human vulnerability factors, spear phishing, vishing, smishing, credential harvesting, physical security bypass, and AI-enabled deepfakes.",
+    description:
+      "Human vulnerability factors, spear phishing, vishing, smishing, credential harvesting, physical security bypass, and AI-enabled deepfakes.",
     classification: "Official Curriculum Mapping",
     learningObjectives: [
       "Understand psychological triggers (authority, urgency, scarcity) exploited by attackers",
@@ -749,7 +839,8 @@ export const CEH_V13_MODULES: CehModule[] = [
       {
         id: "l09-1",
         title: "Psychological Triggers & Phishing Infrastructures",
-        description: "Deploying GoPhish, configuring sender domains (SPF/DKIM/DMARC), and tracking click-through rates.",
+        description:
+          "Deploying GoPhish, configuring sender domains (SPF/DKIM/DMARC), and tracking click-through rates.",
         durationMin: 40,
         classification: "Official Curriculum Mapping",
       },
@@ -763,13 +854,16 @@ export const CEH_V13_MODULES: CehModule[] = [
       {
         id: "l09-3",
         title: "AI Voice Cloning & Deepfake Threats",
-        description: "How synthetic audio and generative text engines circumvent traditional corporate verification protocols.",
+        description:
+          "How synthetic audio and generative text engines circumvent traditional corporate verification protocols.",
         durationMin: 40,
         classification: "AI-Assisted Explanation",
-        aiWorkflow: "Analyzing simulated deepfake voice audio artifacts to differentiate synthetic audio from authentic communications.",
+        aiWorkflow:
+          "Analyzing simulated deepfake voice audio artifacts to differentiate synthetic audio from authentic communications.",
       },
     ],
-    conceptExplanation: "Social engineering targets the human element rather than technical software bugs. With the advent of Generative AI, social engineering has evolved from generic spam to hyper-personalized phishing emails and real-time deepfake voice impersonation.",
+    conceptExplanation:
+      "Social engineering targets the human element rather than technical software bugs. With the advent of Generative AI, social engineering has evolved from generic spam to hyper-personalized phishing emails and real-time deepfake voice impersonation.",
     aiAssistantFeatures: [
       "AI analysis of phishing lures to evaluate detection likelihood by enterprise email gateways",
       "Simulation of multilingual corporate communication templates for awareness training",
@@ -780,7 +874,8 @@ export const CEH_V13_MODULES: CehModule[] = [
         id: "lab-09",
         title: "Simulated Corporate Phishing & Credential Harvester",
         environment: "Isolated Phishing Simulation Sandbox",
-        scenario: "Configure an ethical phishing simulation with GoPhish, analyze user interaction telemetry, and verify DMARC alignment defenses.",
+        scenario:
+          "Configure an ethical phishing simulation with GoPhish, analyze user interaction telemetry, and verify DMARC alignment defenses.",
         tools: ["GoPhish", "Social-Engineer Toolkit (SET)", "Evilginx", "DMARC Analyzer"],
         classification: "CyberBodha Supplementary Lab",
         isAiEnhanced: true,
@@ -793,15 +888,18 @@ export const CEH_V13_MODULES: CehModule[] = [
     knowledgeChecks: [
       {
         id: "qc-09",
-        question: "What term describes a phishing attack specifically targeting high-profile corporate executives such as the CEO or CFO?",
+        question:
+          "What term describes a phishing attack specifically targeting high-profile corporate executives such as the CEO or CFO?",
         options: ["Vishing", "Whaling", "Smishing", "Pharming"],
         answerIndex: 1,
-        explanation: "Whaling is a specialized type of spear-phishing attack directed at senior corporate leadership or high-profile executives.",
+        explanation:
+          "Whaling is a specialized type of spear-phishing attack directed at senior corporate leadership or high-profile executives.",
         classification: "Practice Assessment",
       },
     ],
     moduleAssessment: "Social engineering campaign design and technical anti-spoofing audit.",
-    summary: "Covers psychological tactics, phishing infrastructure deployment, physical security assessments, and AI deepfake defense measures.",
+    summary:
+      "Covers psychological tactics, phishing infrastructure deployment, physical security assessments, and AI deepfake defense measures.",
   },
   {
     number: 10,
@@ -809,7 +907,8 @@ export const CEH_V13_MODULES: CehModule[] = [
     officialTitle: "Denial-of-Service",
     category: "Network & System Exploitation",
     durationHours: 2,
-    description: "DoS and DDoS attack mechanisms, volumetric floods, protocol attacks, application layer exhaustion, botnets, and cloud DDoS scrubbing mitigations.",
+    description:
+      "DoS and DDoS attack mechanisms, volumetric floods, protocol attacks, application layer exhaustion, botnets, and cloud DDoS scrubbing mitigations.",
     classification: "Official Curriculum Mapping",
     learningObjectives: [
       "Analyze the differences between volumetric, protocol, and application-layer DoS attacks",
@@ -836,20 +935,24 @@ export const CEH_V13_MODULES: CehModule[] = [
       {
         id: "l10-2",
         title: "Application-Layer Exhaustion & Slowloris",
-        description: "Starving web server connection pools using minimal client bandwidth and persistent partial headers.",
+        description:
+          "Starving web server connection pools using minimal client bandwidth and persistent partial headers.",
         durationMin: 40,
         classification: "CyberBodha Explanation",
       },
       {
         id: "l10-3",
         title: "AI in Autonomous DDoS Mitigation",
-        description: "How machine learning filters out malicious bot traffic in real-time without impacting legitimate users.",
+        description:
+          "How machine learning filters out malicious bot traffic in real-time without impacting legitimate users.",
         durationMin: 35,
         classification: "AI-Assisted Explanation",
-        aiWorkflow: "Analyzing synthetic network flow traffic to construct adaptive iptables and Cloudflare WAF rate-limiting rules.",
+        aiWorkflow:
+          "Analyzing synthetic network flow traffic to construct adaptive iptables and Cloudflare WAF rate-limiting rules.",
       },
     ],
-    conceptExplanation: "Denial-of-Service aims to render services unavailable to intended users by exhausting computing resources, network bandwidth, or application threads. In modern enterprise environments, mitigation relies on intelligent edge scrubbing and rate-limiting.",
+    conceptExplanation:
+      "Denial-of-Service aims to render services unavailable to intended users by exhausting computing resources, network bandwidth, or application threads. In modern enterprise environments, mitigation relies on intelligent edge scrubbing and rate-limiting.",
     aiAssistantFeatures: [
       "AI pattern recognition for distributed HTTP flood signatures",
       "Synthesis of WAF rate-limiting rules based on attack telemetry",
@@ -860,7 +963,8 @@ export const CEH_V13_MODULES: CehModule[] = [
         id: "lab-10",
         title: "SYN Flood and Slowloris Stress Testing",
         environment: "Isolated Cyber Range Load Test Range",
-        scenario: "Simulate a SYN flood and Slowloris attack against a test web service in an isolated environment, then configure SYN cookies and connection limits to protect availability.",
+        scenario:
+          "Simulate a SYN flood and Slowloris attack against a test web service in an isolated environment, then configure SYN cookies and connection limits to protect availability.",
         tools: ["Hping3", "Slowloris", "Wireshark", "iptables", "Nginx Rate Limiting"],
         classification: "CyberBodha Supplementary Lab",
         isAiEnhanced: false,
@@ -873,15 +977,18 @@ export const CEH_V13_MODULES: CehModule[] = [
     knowledgeChecks: [
       {
         id: "qc-10",
-        question: "Which kernel defense mechanism protects a Linux server from exhausting its connection table during a SYN flood attack?",
+        question:
+          "Which kernel defense mechanism protects a Linux server from exhausting its connection table during a SYN flood attack?",
         options: ["SYN Cookies", "Spanning Tree", "Reverse Path Forwarding", "Split Horizon"],
         answerIndex: 0,
-        explanation: "SYN Cookies allow a server to avoid allocating memory resources for incomplete TCP handshakes until the final ACK packet is returned.",
+        explanation:
+          "SYN Cookies allow a server to avoid allocating memory resources for incomplete TCP handshakes until the final ACK packet is returned.",
         classification: "Practice Assessment",
       },
     ],
     moduleAssessment: "Stress testing simulation and defensive configuration validation.",
-    summary: "Covers flood mechanisms, amplification vectors, application starvation, botnet structures, and enterprise scrubbing solutions.",
+    summary:
+      "Covers flood mechanisms, amplification vectors, application starvation, botnet structures, and enterprise scrubbing solutions.",
   },
   {
     number: 11,
@@ -889,7 +996,8 @@ export const CEH_V13_MODULES: CehModule[] = [
     officialTitle: "Session Hijacking",
     category: "Offensive Web & Apps",
     durationHours: 2,
-    description: "Network and application layer session hijacking, token prediction, session fixation, blind hijacking, and secure session management.",
+    description:
+      "Network and application layer session hijacking, token prediction, session fixation, blind hijacking, and secure session management.",
     classification: "Official Curriculum Mapping",
     learningObjectives: [
       "Understand the lifecycle and security mechanisms of HTTP cookies and JWT tokens",
@@ -916,20 +1024,24 @@ export const CEH_V13_MODULES: CehModule[] = [
       {
         id: "l11-2",
         title: "JWT Token Security & Tampering",
-        description: "Exploiting weak HMAC secrets, the 'none' algorithm bug, and key confusion vulnerabilities.",
+        description:
+          "Exploiting weak HMAC secrets, the 'none' algorithm bug, and key confusion vulnerabilities.",
         durationMin: 45,
         classification: "CyberBodha Explanation",
       },
       {
         id: "l11-3",
         title: "AI in Session Anomaly Detection",
-        description: "How identity providers use AI to detect hijacked sessions based on impossible travel and device fingerprint anomalies.",
+        description:
+          "How identity providers use AI to detect hijacked sessions based on impossible travel and device fingerprint anomalies.",
         durationMin: 35,
         classification: "AI-Assisted Explanation",
-        aiWorkflow: "Using AI to generate Python scripts that test session tokens for statistical entropy and randomness flaws.",
+        aiWorkflow:
+          "Using AI to generate Python scripts that test session tokens for statistical entropy and randomness flaws.",
       },
     ],
-    conceptExplanation: "Session hijacking enables an attacker to take over an authenticated user's active session without knowing their underlying credentials. It bridges network-level packet manipulation and application-level token exploitation.",
+    conceptExplanation:
+      "Session hijacking enables an attacker to take over an authenticated user's active session without knowing their underlying credentials. It bridges network-level packet manipulation and application-level token exploitation.",
     aiAssistantFeatures: [
       "AI analysis of session token entropy and predictability flaws",
       "Automated decoding and structural review of JSON Web Tokens (JWT)",
@@ -940,7 +1052,8 @@ export const CEH_V13_MODULES: CehModule[] = [
         id: "lab-11",
         title: "Intercepting and Hijacking Web Sessions",
         environment: "Cyber Range Web Application Testbed",
-        scenario: "Capture an authenticated session cookie across an unencrypted link, tamper with a JWT token signature, and hijack an administrative session.",
+        scenario:
+          "Capture an authenticated session cookie across an unencrypted link, tamper with a JWT token signature, and hijack an administrative session.",
         tools: ["Burp Suite", "OWASP ZAP", "jwt_tool", "Wireshark"],
         classification: "CyberBodha Supplementary Lab",
         isAiEnhanced: true,
@@ -953,15 +1066,18 @@ export const CEH_V13_MODULES: CehModule[] = [
     knowledgeChecks: [
       {
         id: "qc-11",
-        question: "Which cookie flag prevents client-side JavaScript from accessing session cookies, mitigating theft via Cross-Site Scripting (XSS)?",
+        question:
+          "Which cookie flag prevents client-side JavaScript from accessing session cookies, mitigating theft via Cross-Site Scripting (XSS)?",
         options: ["SameSite=Strict", "HttpOnly", "Secure", "Domain"],
         answerIndex: 1,
-        explanation: "The HttpOnly flag blocks client-side scripts from reading document.cookie, protecting the session cookie against XSS extraction.",
+        explanation:
+          "The HttpOnly flag blocks client-side scripts from reading document.cookie, protecting the session cookie against XSS extraction.",
         classification: "Practice Assessment",
       },
     ],
     moduleAssessment: "Token interception and JWT signature tampering capstone exercise.",
-    summary: "Examines token interception, TCP sequence manipulation, JWT exploitation, session fixation, and secure cookie architecture.",
+    summary:
+      "Examines token interception, TCP sequence manipulation, JWT exploitation, session fixation, and secure cookie architecture.",
   },
   {
     number: 12,
@@ -969,7 +1085,8 @@ export const CEH_V13_MODULES: CehModule[] = [
     officialTitle: "Evading IDS, Firewalls, and Honeypots",
     category: "Offensive Web & Apps",
     durationHours: 2.5,
-    description: "Intrusion detection mechanisms, firewall architectures, packet fragmentation, decoy scanning, protocol tunneling, and honeypot detection.",
+    description:
+      "Intrusion detection mechanisms, firewall architectures, packet fragmentation, decoy scanning, protocol tunneling, and honeypot detection.",
     classification: "Official Curriculum Mapping",
     learningObjectives: [
       "Analyze the difference between signature-based and anomaly-based IDS/IPS engines",
@@ -989,7 +1106,8 @@ export const CEH_V13_MODULES: CehModule[] = [
       {
         id: "l12-1",
         title: "Intrusion Detection Mechanics & Signature Evasion",
-        description: "How Snort and Suricata parse packets and how payload encoding masks malicious signatures.",
+        description:
+          "How Snort and Suricata parse packets and how payload encoding masks malicious signatures.",
         durationMin: 50,
         classification: "Official Curriculum Mapping",
       },
@@ -1003,13 +1121,16 @@ export const CEH_V13_MODULES: CehModule[] = [
       {
         id: "l12-3",
         title: "AI-Assisted Adversarial Evasion Modeling",
-        description: "Using AI to analyze WAF regex patterns and craft mutations that pass inspection while executing successfully on backend servers.",
+        description:
+          "Using AI to analyze WAF regex patterns and craft mutations that pass inspection while executing successfully on backend servers.",
         durationMin: 35,
         classification: "AI-Assisted Explanation",
-        aiWorkflow: "Mutating SQL and XSS payloads using genetic algorithms and LLM variations to bypass modern ModSecurity rule sets.",
+        aiWorkflow:
+          "Mutating SQL and XSS payloads using genetic algorithms and LLM variations to bypass modern ModSecurity rule sets.",
       },
     ],
-    conceptExplanation: "Defensive perimeter technologies detect and block unauthorized traffic. Ethical hackers must understand how security filters inspect packets, recognize signature limitations, and determine whether simulated attacks reach target assets.",
+    conceptExplanation:
+      "Defensive perimeter technologies detect and block unauthorized traffic. Ethical hackers must understand how security filters inspect packets, recognize signature limitations, and determine whether simulated attacks reach target assets.",
     aiAssistantFeatures: [
       "AI-driven payload mutation to test WAF regex rule completeness",
       "Heuristic detection of honeypots based on unnatural response times and open service profiles",
@@ -1020,8 +1141,15 @@ export const CEH_V13_MODULES: CehModule[] = [
         id: "lab-12",
         title: "Bypassing WAF and Honeypot Detection",
         environment: "Cyber Range Firewalled DMZ Topology",
-        scenario: "Execute fragmented scans against an active Snort IDS, bypass an open-source WAF using payload mutation, and differentiate a real server from a honeypot.",
-        tools: ["Nmap", "Snort", "ModSecurity", "Kippo / Cowrie Honeypot", "Iodine (DNS Tunneling)"],
+        scenario:
+          "Execute fragmented scans against an active Snort IDS, bypass an open-source WAF using payload mutation, and differentiate a real server from a honeypot.",
+        tools: [
+          "Nmap",
+          "Snort",
+          "ModSecurity",
+          "Kippo / Cowrie Honeypot",
+          "Iodine (DNS Tunneling)",
+        ],
         classification: "CyberBodha Supplementary Lab",
         isAiEnhanced: true,
       },
@@ -1033,15 +1161,18 @@ export const CEH_V13_MODULES: CehModule[] = [
     knowledgeChecks: [
       {
         id: "qc-12",
-        question: "What evasion technique involves splitting an attack packet into tiny fragments so an inspection engine cannot assemble the signature across fragments?",
+        question:
+          "What evasion technique involves splitting an attack packet into tiny fragments so an inspection engine cannot assemble the signature across fragments?",
         options: ["Source Routing", "Packet Fragmentation", "TTL Manipulation", "Session Splicing"],
         answerIndex: 1,
-        explanation: "Packet fragmentation splits the TCP or IP payload across multiple small packets, attempting to bypass an IDS that does not properly reassemble fragments before inspection.",
+        explanation:
+          "Packet fragmentation splits the TCP or IP payload across multiple small packets, attempting to bypass an IDS that does not properly reassemble fragments before inspection.",
         classification: "Practice Assessment",
       },
     ],
     moduleAssessment: "Firewall bypass, IDS evasion, and honeypot identification scenario.",
-    summary: "Covers signature evasion, packet fragmentation, DNS tunneling, WAF bypass methodologies, and honeypot detection.",
+    summary:
+      "Covers signature evasion, packet fragmentation, DNS tunneling, WAF bypass methodologies, and honeypot detection.",
   },
   {
     number: 13,
@@ -1049,7 +1180,8 @@ export const CEH_V13_MODULES: CehModule[] = [
     officialTitle: "Hacking Web Servers",
     category: "Offensive Web & Apps",
     durationHours: 2,
-    description: "Web server architectures, misconfigurations, directory traversal, HTTP response splitting, web cache poisoning, and web server patch auditing.",
+    description:
+      "Web server architectures, misconfigurations, directory traversal, HTTP response splitting, web cache poisoning, and web server patch auditing.",
     classification: "Official Curriculum Mapping",
     learningObjectives: [
       "Identify common web server misconfigurations across Apache, Nginx, and Microsoft IIS",
@@ -1069,14 +1201,16 @@ export const CEH_V13_MODULES: CehModule[] = [
       {
         id: "l13-1",
         title: "Web Server Attack Surface & Directory Traversal",
-        description: "Exploiting path traversal (../..) and unauthenticated file access on Apache and IIS.",
+        description:
+          "Exploiting path traversal (../..) and unauthenticated file access on Apache and IIS.",
         durationMin: 45,
         classification: "Official Curriculum Mapping",
       },
       {
         id: "l13-2",
         title: "Automated Web Server Auditing with Nikto & Gobuster",
-        description: "Discovering hidden endpoints, exposed backups, and unlinked administrative panels.",
+        description:
+          "Discovering hidden endpoints, exposed backups, and unlinked administrative panels.",
         durationMin: 40,
         classification: "CyberBodha Explanation",
       },
@@ -1086,10 +1220,12 @@ export const CEH_V13_MODULES: CehModule[] = [
         description: "Using AI to review Nginx and Apache server blocks against CIS Benchmarks.",
         durationMin: 35,
         classification: "AI-Assisted Explanation",
-        aiWorkflow: "Auditing complex Nginx configuration files using AI to identify dangerous proxy_pass and regex misconfigurations.",
+        aiWorkflow:
+          "Auditing complex Nginx configuration files using AI to identify dangerous proxy_pass and regex misconfigurations.",
       },
     ],
-    conceptExplanation: "Web servers host the public face of modern organizations. Vulnerabilities in server software, default sample scripts, and file access permissions can give attackers direct shell access to backend hosting operating systems.",
+    conceptExplanation:
+      "Web servers host the public face of modern organizations. Vulnerabilities in server software, default sample scripts, and file access permissions can give attackers direct shell access to backend hosting operating systems.",
     aiAssistantFeatures: [
       "AI auditing of web server configuration files (nginx.conf, httpd.conf) for security missteps",
       "Automated extraction of high-priority findings from Nikto vulnerability scan logs",
@@ -1100,7 +1236,8 @@ export const CEH_V13_MODULES: CehModule[] = [
         id: "lab-13",
         title: "Exploiting Web Server Misconfigurations",
         environment: "Cyber Range Apache & Nginx Infrastructure",
-        scenario: "Enumerate hidden directories, exploit a directory traversal flaw to read /etc/passwd, and secure the server block with strict access controls.",
+        scenario:
+          "Enumerate hidden directories, exploit a directory traversal flaw to read /etc/passwd, and secure the server block with strict access controls.",
         tools: ["Nikto", "Gobuster", "Burp Suite", "Curl"],
         classification: "CyberBodha Supplementary Lab",
         isAiEnhanced: false,
@@ -1113,15 +1250,23 @@ export const CEH_V13_MODULES: CehModule[] = [
     knowledgeChecks: [
       {
         id: "qc-13",
-        question: "Which HTTP response header mitigates clickjacking attacks by dictating whether a browser is allowed to render a page inside an <iframe>?",
-        options: ["Strict-Transport-Security", "X-Frame-Options", "X-Content-Type-Options", "Content-Encoding"],
+        question:
+          "Which HTTP response header mitigates clickjacking attacks by dictating whether a browser is allowed to render a page inside an <iframe>?",
+        options: [
+          "Strict-Transport-Security",
+          "X-Frame-Options",
+          "X-Content-Type-Options",
+          "Content-Encoding",
+        ],
         answerIndex: 1,
-        explanation: "The X-Frame-Options header (and CSP frame-ancestors directive) prevents clickjacking by restricting whether a site can be embedded within frames.",
+        explanation:
+          "The X-Frame-Options header (and CSP frame-ancestors directive) prevents clickjacking by restricting whether a site can be embedded within frames.",
         classification: "Practice Assessment",
       },
     ],
     moduleAssessment: "Web server enumeration and directory traversal exploitation challenge.",
-    summary: "Covers server architecture, directory traversal, hidden file discovery, IIS/Apache misconfigurations, and CIS hardening.",
+    summary:
+      "Covers server architecture, directory traversal, hidden file discovery, IIS/Apache misconfigurations, and CIS hardening.",
   },
   {
     number: 14,
@@ -1129,7 +1274,8 @@ export const CEH_V13_MODULES: CehModule[] = [
     officialTitle: "Hacking Web Applications",
     category: "Offensive Web & Apps",
     durationHours: 3,
-    description: "OWASP Top 10 vulnerabilities, Cross-Site Scripting (XSS), Cross-Site Request Forgery (CSRF), IDOR, SSRF, Broken Access Control, and API security testing.",
+    description:
+      "OWASP Top 10 vulnerabilities, Cross-Site Scripting (XSS), Cross-Site Request Forgery (CSRF), IDOR, SSRF, Broken Access Control, and API security testing.",
     classification: "Official Curriculum Mapping",
     learningObjectives: [
       "Master the OWASP Top 10 vulnerability categories and testing methodologies",
@@ -1157,20 +1303,24 @@ export const CEH_V13_MODULES: CehModule[] = [
       {
         id: "l14-2",
         title: "SSRF and Cloud Metadata Exfiltration",
-        description: "Leveraging vulnerable URL handlers to query internal cloud metadata endpoints (169.254.169.254).",
+        description:
+          "Leveraging vulnerable URL handlers to query internal cloud metadata endpoints (169.254.169.254).",
         durationMin: 50,
         classification: "CyberBodha Explanation",
       },
       {
         id: "l14-3",
         title: "AI in Web Application Security Auditing",
-        description: "Deploying LLMs to audit frontend JavaScript and backend API route handlers for business logic flaws.",
+        description:
+          "Deploying LLMs to audit frontend JavaScript and backend API route handlers for business logic flaws.",
         durationMin: 45,
         classification: "AI-Assisted Explanation",
-        aiWorkflow: "Auditing full-stack React and Express.js source code with AI to locate IDOR and authorization gaps.",
+        aiWorkflow:
+          "Auditing full-stack React and Express.js source code with AI to locate IDOR and authorization gaps.",
       },
     ],
-    conceptExplanation: "Web application hacking identifies flaws in application code, business logic, and API endpoints. Rather than network perimeter flaws, web app exploits abuse trusted browser-to-server interactions, input sanitation gaps, and flawed access controls.",
+    conceptExplanation:
+      "Web application hacking identifies flaws in application code, business logic, and API endpoints. Rather than network perimeter flaws, web app exploits abuse trusted browser-to-server interactions, input sanitation gaps, and flawed access controls.",
     aiAssistantFeatures: [
       "AI-assisted vulnerability triage for complex Single Page Application (SPA) source code",
       "Context-aware XSS payload generation for non-standard browser DOM environments",
@@ -1181,7 +1331,8 @@ export const CEH_V13_MODULES: CehModule[] = [
         id: "lab-14",
         title: "OWASP Top 10 Exploitation Lab",
         environment: "Cyber Range OWASP Juice Shop & Custom Web Target",
-        scenario: "Execute Stored XSS to hijack session tokens, exploit an IDOR vulnerability to view customer profiles, and trigger an SSRF query against internal services.",
+        scenario:
+          "Execute Stored XSS to hijack session tokens, exploit an IDOR vulnerability to view customer profiles, and trigger an SSRF query against internal services.",
         tools: ["Burp Suite Professional / Community", "OWASP ZAP", "Postman", "ffuf"],
         classification: "CyberBodha Supplementary Lab",
         isAiEnhanced: true,
@@ -1194,15 +1345,23 @@ export const CEH_V13_MODULES: CehModule[] = [
     knowledgeChecks: [
       {
         id: "qc-14",
-        question: "What vulnerability occurs when an application fetches a remote resource without properly validating the user-supplied destination URL?",
-        options: ["Cross-Site Scripting (XSS)", "Server-Side Request Forgery (SSRF)", "Insecure Deserialization", "Directory Indexing"],
+        question:
+          "What vulnerability occurs when an application fetches a remote resource without properly validating the user-supplied destination URL?",
+        options: [
+          "Cross-Site Scripting (XSS)",
+          "Server-Side Request Forgery (SSRF)",
+          "Insecure Deserialization",
+          "Directory Indexing",
+        ],
         answerIndex: 1,
-        explanation: "Server-Side Request Forgery (SSRF) abuses server functionality to make outbound requests to unauthorized internal or external destinations.",
+        explanation:
+          "Server-Side Request Forgery (SSRF) abuses server functionality to make outbound requests to unauthorized internal or external destinations.",
         classification: "Practice Assessment",
       },
     ],
     moduleAssessment: "OWASP Top 10 multi-stage web application penetration test.",
-    summary: "Covers OWASP Top 10, Reflected/Stored XSS, SSRF to cloud metadata, IDOR, API security auditing, and secure coding remediation.",
+    summary:
+      "Covers OWASP Top 10, Reflected/Stored XSS, SSRF to cloud metadata, IDOR, API security auditing, and secure coding remediation.",
   },
   {
     number: 15,
@@ -1210,7 +1369,8 @@ export const CEH_V13_MODULES: CehModule[] = [
     officialTitle: "SQL Injection",
     category: "Offensive Web & Apps",
     durationHours: 2,
-    description: "In-band, error-based, union-based, blind (boolean/time-based), and out-of-band SQL injection, database fingerprinting, and defense with parameterized queries.",
+    description:
+      "In-band, error-based, union-based, blind (boolean/time-based), and out-of-band SQL injection, database fingerprinting, and defense with parameterized queries.",
     classification: "Official Curriculum Mapping",
     learningObjectives: [
       "Understand SQL parsing logic and why string concatenation causes injection vulnerabilities",
@@ -1230,27 +1390,31 @@ export const CEH_V13_MODULES: CehModule[] = [
       {
         id: "l15-1",
         title: "Union-Based SQL Injection Mechanics",
-        description: "Determining column count, data type alignment, and extracting information_schema tables.",
+        description:
+          "Determining column count, data type alignment, and extracting information_schema tables.",
         durationMin: 45,
         classification: "Official Curriculum Mapping",
       },
       {
         id: "l15-2",
         title: "Blind SQL Injection & Out-of-Band Exfiltration",
-        description: "Extracting data bit-by-bit using conditional responses, sleep queries, and DNS requests.",
+        description:
+          "Extracting data bit-by-bit using conditional responses, sleep queries, and DNS requests.",
         durationMin: 45,
         classification: "CyberBodha Explanation",
       },
       {
         id: "l15-3",
         title: "AI Analysis of SQL Injection Vulnerabilities",
-        description: "Using AI to locate subtle Second-Order SQLi flaws in legacy application codebases.",
+        description:
+          "Using AI to locate subtle Second-Order SQLi flaws in legacy application codebases.",
         durationMin: 30,
         classification: "AI-Assisted Explanation",
         aiWorkflow: "Writing safe parameterized query refactors using AI code assistant.",
       },
     ],
-    conceptExplanation: "SQL Injection occurs when untrusted user input is directly concatenated into database query strings. This allows attackers to alter query logic, bypass authentication, extract sensitive tables, and in some environments execute operating system commands.",
+    conceptExplanation:
+      "SQL Injection occurs when untrusted user input is directly concatenated into database query strings. This allows attackers to alter query logic, bypass authentication, extract sensitive tables, and in some environments execute operating system commands.",
     aiAssistantFeatures: [
       "AI deconstruction of complex nested SQL queries to identify injection points",
       "Automated conversion of vulnerable dynamic SQL queries into safe parameterized statements",
@@ -1261,7 +1425,8 @@ export const CEH_V13_MODULES: CehModule[] = [
         id: "lab-15",
         title: "Manual and Automated SQL Injection Lab",
         environment: "Cyber Range Multi-Database Target (MySQL & MSSQL)",
-        scenario: "Manually extract database user credentials using UNION-based injection, automate extraction of sensitive tables using SQLMap, and execute xp_cmdshell on MSSQL.",
+        scenario:
+          "Manually extract database user credentials using UNION-based injection, automate extraction of sensitive tables using SQLMap, and execute xp_cmdshell on MSSQL.",
         tools: ["SQLMap", "Burp Suite", "DBeaver", "Custom Python Exploit Scripts"],
         classification: "CyberBodha Supplementary Lab",
         isAiEnhanced: true,
@@ -1274,15 +1439,23 @@ export const CEH_V13_MODULES: CehModule[] = [
     knowledgeChecks: [
       {
         id: "qc-15",
-        question: "Which programming practice completely neutralizes SQL injection by ensuring input is always treated as data, never executable code?",
-        options: ["Input Sanitization Blacklists", "Parameterized Prepared Statements", "Client-Side Input Length Constraints", "Base64 Input Encoding"],
+        question:
+          "Which programming practice completely neutralizes SQL injection by ensuring input is always treated as data, never executable code?",
+        options: [
+          "Input Sanitization Blacklists",
+          "Parameterized Prepared Statements",
+          "Client-Side Input Length Constraints",
+          "Base64 Input Encoding",
+        ],
         answerIndex: 1,
-        explanation: "Parameterized queries (prepared statements) ensure the database engine compiles the query structure first and treats user parameters strictly as literal values.",
+        explanation:
+          "Parameterized queries (prepared statements) ensure the database engine compiles the query structure first and treats user parameters strictly as literal values.",
         classification: "Practice Assessment",
       },
     ],
     moduleAssessment: "Database enumeration and schema exfiltration capstone challenge.",
-    summary: "Covers in-band, error-based, UNION-based, blind, and out-of-band SQL injection, SQLMap automation, and parameterized query remediation.",
+    summary:
+      "Covers in-band, error-based, UNION-based, blind, and out-of-band SQL injection, SQLMap automation, and parameterized query remediation.",
   },
   {
     number: 16,
@@ -1290,7 +1463,8 @@ export const CEH_V13_MODULES: CehModule[] = [
     officialTitle: "Hacking Wireless Networks",
     category: "Specialized Platforms & Cloud",
     durationHours: 2,
-    description: "Wireless encryption protocols (WEP, WPA2, WPA3), 4-way handshake capture, Evil Twin rogue APs, PMKID cracking, and enterprise 802.1X security.",
+    description:
+      "Wireless encryption protocols (WEP, WPA2, WPA3), 4-way handshake capture, Evil Twin rogue APs, PMKID cracking, and enterprise 802.1X security.",
     classification: "Official Curriculum Mapping",
     learningObjectives: [
       "Analyze the cryptographic differences between WEP, WPA2-PSK, and WPA3-SAE",
@@ -1324,13 +1498,16 @@ export const CEH_V13_MODULES: CehModule[] = [
       {
         id: "l16-3",
         title: "AI in Wireless Signal & Traffic Analysis",
-        description: "Using machine learning models to detect rogue AP signal anomalies and MAC spoofing.",
+        description:
+          "Using machine learning models to detect rogue AP signal anomalies and MAC spoofing.",
         durationMin: 30,
         classification: "AI-Assisted Explanation",
-        aiWorkflow: "Analyzing wireless packet logs using AI to identify unauthorized rogue beacons in real-time.",
+        aiWorkflow:
+          "Analyzing wireless packet logs using AI to identify unauthorized rogue beacons in real-time.",
       },
     ],
-    conceptExplanation: "Wireless networks broadcast radio signals across physical boundaries, allowing attackers to probe authentication without physical cabling. Ethical testing examines wireless encryption resilience, client isolation, and rogue access point vulnerability.",
+    conceptExplanation:
+      "Wireless networks broadcast radio signals across physical boundaries, allowing attackers to probe authentication without physical cabling. Ethical testing examines wireless encryption resilience, client isolation, and rogue access point vulnerability.",
     aiAssistantFeatures: [
       "AI-driven dictionary generation targeting regional corporate Wi-Fi naming conventions",
       "Automated detection of rogue AP signal strength and BSSID anomalies",
@@ -1341,7 +1518,8 @@ export const CEH_V13_MODULES: CehModule[] = [
         id: "lab-16",
         title: "WPA2 Handshake Capture and PMKID Cracking",
         environment: "Cyber Range Simulated 802.11 Environment",
-        scenario: "Capture a simulated 4-way handshake using Aircrack-ng, extract PMKID from a target access point, and crack the pre-shared key with Hashcat.",
+        scenario:
+          "Capture a simulated 4-way handshake using Aircrack-ng, extract PMKID from a target access point, and crack the pre-shared key with Hashcat.",
         tools: ["Aircrack-ng Suite", "Airmon-ng", "Airodump-ng", "Hashcat", "Wireshark"],
         classification: "CyberBodha Supplementary Lab",
         isAiEnhanced: false,
@@ -1354,15 +1532,18 @@ export const CEH_V13_MODULES: CehModule[] = [
     knowledgeChecks: [
       {
         id: "qc-16",
-        question: "Which attack against WPA2 access points allows an ethical hacker to obtain cryptographic material without disconnecting any active client?",
+        question:
+          "Which attack against WPA2 access points allows an ethical hacker to obtain cryptographic material without disconnecting any active client?",
         options: ["Deauthentication Flood", "PMKID Attack", "Beacon Flooding", "Replay Attack"],
         answerIndex: 1,
-        explanation: "The PMKID attack extracts the PMKID header directly from the first EAPOL message between the router and client, eliminating the need to wait for or force client re-authentication.",
+        explanation:
+          "The PMKID attack extracts the PMKID header directly from the first EAPOL message between the router and client, eliminating the need to wait for or force client re-authentication.",
         classification: "Practice Assessment",
       },
     ],
     moduleAssessment: "Handshake capture, PMKID cracking, and rogue AP identification exercise.",
-    summary: "Covers 802.11 standards, WPA2/WPA3 analysis, handshake interception, PMKID attacks, Evil Twin simulations, and WIPS mitigations.",
+    summary:
+      "Covers 802.11 standards, WPA2/WPA3 analysis, handshake interception, PMKID attacks, Evil Twin simulations, and WIPS mitigations.",
   },
   {
     number: 17,
@@ -1370,7 +1551,8 @@ export const CEH_V13_MODULES: CehModule[] = [
     officialTitle: "Hacking Mobile Platforms",
     category: "Specialized Platforms & Cloud",
     durationHours: 2,
-    description: "Android and iOS security architectures, APK reverse engineering, mobile app sandboxing, rooting/jailbreaking, MDM bypass, and mobile malware.",
+    description:
+      "Android and iOS security architectures, APK reverse engineering, mobile app sandboxing, rooting/jailbreaking, MDM bypass, and mobile malware.",
     classification: "Official Curriculum Mapping",
     learningObjectives: [
       "Understand Android (IPC, Intents, Manifest) and iOS (Sandboxing, Secure Enclave) security models",
@@ -1397,20 +1579,24 @@ export const CEH_V13_MODULES: CehModule[] = [
       {
         id: "l17-2",
         title: "Runtime Mobile Instrumentation & SSL Pinning Bypass",
-        description: "Using Frida scripts to hook into mobile processes and intercept encrypted HTTPS traffic.",
+        description:
+          "Using Frida scripts to hook into mobile processes and intercept encrypted HTTPS traffic.",
         durationMin: 45,
         classification: "CyberBodha Explanation",
       },
       {
         id: "l17-3",
         title: "AI Analysis of Mobile App Vulnerabilities",
-        description: "Using AI to inspect AndroidManifest.xml for exported activities and insecure content providers.",
+        description:
+          "Using AI to inspect AndroidManifest.xml for exported activities and insecure content providers.",
         durationMin: 30,
         classification: "AI-Assisted Explanation",
-        aiWorkflow: "Scanning decompiled mobile Java code with AI to locate hardcoded API keys and private endpoints.",
+        aiWorkflow:
+          "Scanning decompiled mobile Java code with AI to locate hardcoded API keys and private endpoints.",
       },
     ],
-    conceptExplanation: "Mobile devices store sensitive personal and enterprise data on mobile operating systems with sandboxed apps. Ethical mobile testing reviews application storage, insecure network communications, and client-side authorization bypasses.",
+    conceptExplanation:
+      "Mobile devices store sensitive personal and enterprise data on mobile operating systems with sandboxed apps. Ethical mobile testing reviews application storage, insecure network communications, and client-side authorization bypasses.",
     aiAssistantFeatures: [
       "AI identification of hardcoded cryptographic keys and endpoints in decompiled mobile apps",
       "Automated extraction of high-risk permissions from AndroidManifest.xml files",
@@ -1421,7 +1607,8 @@ export const CEH_V13_MODULES: CehModule[] = [
         id: "lab-17",
         title: "Decompiling Android APK and Bypassing SSL Pinning",
         environment: "Cyber Range Android Emulator & Mobile Test Sandbox",
-        scenario: "Decompile a vulnerable Android APK, extract hardcoded Firebase API tokens, and hook the application with Frida to inspect encrypted traffic.",
+        scenario:
+          "Decompile a vulnerable Android APK, extract hardcoded Firebase API tokens, and hook the application with Frida to inspect encrypted traffic.",
         tools: ["JADX-GUI", "APKTool", "Frida", "Objection", "Burp Suite"],
         classification: "CyberBodha Supplementary Lab",
         isAiEnhanced: true,
@@ -1434,15 +1621,18 @@ export const CEH_V13_MODULES: CehModule[] = [
     knowledgeChecks: [
       {
         id: "qc-17",
-        question: "Which dynamic instrumentation toolkit allows penetration testers to hook native functions in real time on mobile applications?",
+        question:
+          "Which dynamic instrumentation toolkit allows penetration testers to hook native functions in real time on mobile applications?",
         options: ["Ghidra", "Frida", "Wireshark", "OpenVAS"],
         answerIndex: 1,
-        explanation: "Frida is a dynamic code instrumentation toolkit that lets security professionals inject JavaScript snippets into native apps on Android, iOS, Windows, and Linux.",
+        explanation:
+          "Frida is a dynamic code instrumentation toolkit that lets security professionals inject JavaScript snippets into native apps on Android, iOS, Windows, and Linux.",
         classification: "Practice Assessment",
       },
     ],
     moduleAssessment: "APK reverse engineering and dynamic instrumentation assessment.",
-    summary: "Covers Android/iOS models, APK decompilation, Frida hooking, SSL certificate pinning bypass, and OWASP Mobile Top 10.",
+    summary:
+      "Covers Android/iOS models, APK decompilation, Frida hooking, SSL certificate pinning bypass, and OWASP Mobile Top 10.",
   },
   {
     number: 18,
@@ -1450,7 +1640,8 @@ export const CEH_V13_MODULES: CehModule[] = [
     officialTitle: "IoT and OT Hacking",
     category: "Specialized Platforms & Cloud",
     durationHours: 2,
-    description: "Internet of Things (IoT) and Operational Technology (OT/SCADA) architectures, firmware extraction, industrial protocols (Modbus, DNP3), and hardware interfaces.",
+    description:
+      "Internet of Things (IoT) and Operational Technology (OT/SCADA) architectures, firmware extraction, industrial protocols (Modbus, DNP3), and hardware interfaces.",
     classification: "Official Curriculum Mapping",
     learningObjectives: [
       "Analyze the convergence of IT, IoT, and Industrial Operational Technology (OT/ICS)",
@@ -1470,27 +1661,32 @@ export const CEH_V13_MODULES: CehModule[] = [
       {
         id: "l18-1",
         title: "IoT Firmware Extraction & Reverse Engineering",
-        description: "Carving file systems from binary firmware files using Binwalk and inspecting startup scripts.",
+        description:
+          "Carving file systems from binary firmware files using Binwalk and inspecting startup scripts.",
         durationMin: 45,
         classification: "Official Curriculum Mapping",
       },
       {
         id: "l18-2",
         title: "OT, SCADA and Modbus Protocol Manipulation",
-        description: "Interrogating PLC holding registers and understanding unauthenticated industrial control commands.",
+        description:
+          "Interrogating PLC holding registers and understanding unauthenticated industrial control commands.",
         durationMin: 45,
         classification: "CyberBodha Explanation",
       },
       {
         id: "l18-3",
         title: "AI in Industrial Control System Security",
-        description: "How machine learning models monitor sensor readings and physical process invariants to detect cyber-physical sabotage.",
+        description:
+          "How machine learning models monitor sensor readings and physical process invariants to detect cyber-physical sabotage.",
         durationMin: 30,
         classification: "AI-Assisted Explanation",
-        aiWorkflow: "Using AI to analyze proprietary IoT firmware binaries for outdated BusyBox and OpenSSL libraries.",
+        aiWorkflow:
+          "Using AI to analyze proprietary IoT firmware binaries for outdated BusyBox and OpenSSL libraries.",
       },
     ],
-    conceptExplanation: "IoT and OT systems control critical physical infrastructure: energy grids, water filtration, smart facilities, and connected industrial hardware. Attacks often exploit unauthenticated legacy protocols, hardcoded credentials, and unpatchable firmware.",
+    conceptExplanation:
+      "IoT and OT systems control critical physical infrastructure: energy grids, water filtration, smart facilities, and connected industrial hardware. Attacks often exploit unauthenticated legacy protocols, hardcoded credentials, and unpatchable firmware.",
     aiAssistantFeatures: [
       "AI analysis of extracted firmware configuration scripts for hidden administrative backdoors",
       "Decoding industrial Modbus and DNP3 packet captures into human-readable operations",
@@ -1501,8 +1697,15 @@ export const CEH_V13_MODULES: CehModule[] = [
         id: "lab-18",
         title: "IoT Firmware Carving and Modbus Interrogation",
         environment: "Cyber Range Simulated OT & Firmware Lab",
-        scenario: "Extract a Linux root filesystem from an IoT router firmware dump with Binwalk, discover hardcoded root credentials, and interrogate a simulated Modbus PLC.",
-        tools: ["Binwalk", "Firmware Analysis Toolkit", "Nmap (Modbus scripts)", "QEMU", "Wireshark"],
+        scenario:
+          "Extract a Linux root filesystem from an IoT router firmware dump with Binwalk, discover hardcoded root credentials, and interrogate a simulated Modbus PLC.",
+        tools: [
+          "Binwalk",
+          "Firmware Analysis Toolkit",
+          "Nmap (Modbus scripts)",
+          "QEMU",
+          "Wireshark",
+        ],
         classification: "CyberBodha Supplementary Lab",
         isAiEnhanced: true,
       },
@@ -1514,15 +1717,23 @@ export const CEH_V13_MODULES: CehModule[] = [
     knowledgeChecks: [
       {
         id: "qc-18",
-        question: "Which architectural model divides industrial automation and control networks into distinct hierarchical levels to isolate critical physical processes?",
-        options: ["OSI 7-Layer Model", "Purdue Enterprise Reference Architecture", "DoD TCP/IP Model", "Bell-LaPadula Model"],
+        question:
+          "Which architectural model divides industrial automation and control networks into distinct hierarchical levels to isolate critical physical processes?",
+        options: [
+          "OSI 7-Layer Model",
+          "Purdue Enterprise Reference Architecture",
+          "DoD TCP/IP Model",
+          "Bell-LaPadula Model",
+        ],
         answerIndex: 1,
-        explanation: "The Purdue Model (ISA-95) segments industrial networks into distinct levels (from Level 0 sensors to Level 4 enterprise IT) to prevent IT compromises from affecting OT processes.",
+        explanation:
+          "The Purdue Model (ISA-95) segments industrial networks into distinct levels (from Level 0 sensors to Level 4 enterprise IT) to prevent IT compromises from affecting OT processes.",
         classification: "Practice Assessment",
       },
     ],
     moduleAssessment: "IoT firmware extraction and industrial protocol audit scenario.",
-    summary: "Covers IoT/OT ecosystems, firmware extraction with Binwalk, industrial protocols like Modbus, Purdue segmentation, and critical infrastructure defense.",
+    summary:
+      "Covers IoT/OT ecosystems, firmware extraction with Binwalk, industrial protocols like Modbus, Purdue segmentation, and critical infrastructure defense.",
   },
   {
     number: 19,
@@ -1530,7 +1741,8 @@ export const CEH_V13_MODULES: CehModule[] = [
     officialTitle: "Cloud Computing",
     category: "Specialized Platforms & Cloud",
     durationHours: 2.5,
-    description: "Cloud service models (IaaS, PaaS, SaaS), AWS/Azure/GCP identity misconfigurations, S3 bucket enumeration, serverless flaws, and cloud security posture management.",
+    description:
+      "Cloud service models (IaaS, PaaS, SaaS), AWS/Azure/GCP identity misconfigurations, S3 bucket enumeration, serverless flaws, and cloud security posture management.",
     classification: "Official Curriculum Mapping",
     learningObjectives: [
       "Understand the Shared Responsibility Model across IaaS, PaaS, and SaaS environments",
@@ -1551,27 +1763,32 @@ export const CEH_V13_MODULES: CehModule[] = [
       {
         id: "l19-1",
         title: "IAM Role Chaining & Privilege Escalation in AWS/Azure",
-        description: "Exploiting AssumeRole trust relationships and excessive IAM permissions to achieve admin access.",
+        description:
+          "Exploiting AssumeRole trust relationships and excessive IAM permissions to achieve admin access.",
         durationMin: 50,
         classification: "Official Curriculum Mapping",
       },
       {
         id: "l19-2",
         title: "Cloud Storage Enumeration & Container Security",
-        description: "Automated scanning of misconfigured S3 buckets, exposed Docker sockets, and Kubernetes API servers.",
+        description:
+          "Automated scanning of misconfigured S3 buckets, exposed Docker sockets, and Kubernetes API servers.",
         durationMin: 50,
         classification: "CyberBodha Explanation",
       },
       {
         id: "l19-3",
         title: "AI in Cloud Infrastructure-as-Code Auditing",
-        description: "Deploying AI to review Terraform and Bicep scripts before deployment to prevent cloud misconfigurations.",
+        description:
+          "Deploying AI to review Terraform and Bicep scripts before deployment to prevent cloud misconfigurations.",
         durationMin: 35,
         classification: "AI-Assisted Explanation",
-        aiWorkflow: "Auditing multi-cloud Terraform templates with AI to detect exposed ports and unencrypted storage volumes.",
+        aiWorkflow:
+          "Auditing multi-cloud Terraform templates with AI to detect exposed ports and unencrypted storage volumes.",
       },
     ],
-    conceptExplanation: "Cloud computing shifts infrastructure from physical datacenters to dynamic software-defined environments. The vast majority of cloud breaches stem not from hypervisor flaws, but from human misconfiguration of IAM policies, unauthenticated storage, and exposed API keys.",
+    conceptExplanation:
+      "Cloud computing shifts infrastructure from physical datacenters to dynamic software-defined environments. The vast majority of cloud breaches stem not from hypervisor flaws, but from human misconfiguration of IAM policies, unauthenticated storage, and exposed API keys.",
     aiAssistantFeatures: [
       "AI analysis of complex AWS IAM policy JSON documents for privilege escalation vectors",
       "Automated scanning of Terraform and CloudFormation templates for CIS benchmark compliance",
@@ -1582,7 +1799,8 @@ export const CEH_V13_MODULES: CehModule[] = [
         id: "lab-19",
         title: "AWS/Azure Cloud Privilege Escalation and Bucket Enumeration",
         environment: "Cyber Range Multi-Cloud Sandbox Topology",
-        scenario: "Enumerate an exposed S3 bucket, obtain compromised IAM access keys, escalate privileges via an over-permissive role policy, and extract database snapshot data.",
+        scenario:
+          "Enumerate an exposed S3 bucket, obtain compromised IAM access keys, escalate privileges via an over-permissive role policy, and extract database snapshot data.",
         tools: ["AWS CLI", "Pacu (AWS Exploitation Framework)", "ScoutSuite", "TruffleHog"],
         classification: "CyberBodha Supplementary Lab",
         isAiEnhanced: true,
@@ -1595,15 +1813,23 @@ export const CEH_V13_MODULES: CehModule[] = [
     knowledgeChecks: [
       {
         id: "qc-19",
-        question: "Under the Cloud Shared Responsibility Model, which party is primarily responsible for configuring Identity and Access Management (IAM) and securing customer data in an IaaS environment?",
-        options: ["Cloud Service Provider (CSP)", "Customer / Cloud Consumer", "Third-Party Cloud Security Broker", "Hardware Vendor"],
+        question:
+          "Under the Cloud Shared Responsibility Model, which party is primarily responsible for configuring Identity and Access Management (IAM) and securing customer data in an IaaS environment?",
+        options: [
+          "Cloud Service Provider (CSP)",
+          "Customer / Cloud Consumer",
+          "Third-Party Cloud Security Broker",
+          "Hardware Vendor",
+        ],
         answerIndex: 1,
-        explanation: "In Infrastructure-as-a-Service (IaaS), the cloud consumer is responsible for configuring access permissions, operating system updates, customer data protection, and network firewall rules.",
+        explanation:
+          "In Infrastructure-as-a-Service (IaaS), the cloud consumer is responsible for configuring access permissions, operating system updates, customer data protection, and network firewall rules.",
         classification: "Practice Assessment",
       },
     ],
     moduleAssessment: "Cloud IAM privilege escalation and storage enumeration capstone exercise.",
-    summary: "Covers cloud architecture, IAM privilege escalation, S3 bucket exposure, container security, Terraform auditing, and CSPM posture management.",
+    summary:
+      "Covers cloud architecture, IAM privilege escalation, S3 bucket exposure, container security, Terraform auditing, and CSPM posture management.",
   },
   {
     number: 20,
@@ -1611,7 +1837,8 @@ export const CEH_V13_MODULES: CehModule[] = [
     officialTitle: "Cryptography",
     category: "Defensive Defense & Crypto",
     durationHours: 2.5,
-    description: "Symmetric and asymmetric encryption, hashing algorithms, Public Key Infrastructure (PKI), TLS 1.3, cryptographic attacks, and post-quantum cryptography.",
+    description:
+      "Symmetric and asymmetric encryption, hashing algorithms, Public Key Infrastructure (PKI), TLS 1.3, cryptographic attacks, and post-quantum cryptography.",
     classification: "Official Curriculum Mapping",
     learningObjectives: [
       "Compare symmetric ciphers (AES, ChaCha20) and asymmetric ciphers (RSA, ECC, Diffie-Hellman)",
@@ -1632,7 +1859,8 @@ export const CEH_V13_MODULES: CehModule[] = [
       {
         id: "l20-1",
         title: "Modern Symmetric & Asymmetric Encryption",
-        description: "Mathematical principles of AES-GCM, RSA key pairs, and Elliptic Curve Cryptography.",
+        description:
+          "Mathematical principles of AES-GCM, RSA key pairs, and Elliptic Curve Cryptography.",
         durationMin: 50,
         classification: "Official Curriculum Mapping",
       },
@@ -1646,13 +1874,16 @@ export const CEH_V13_MODULES: CehModule[] = [
       {
         id: "l20-3",
         title: "AI in Cryptographic Key Strength & Post-Quantum Readiness",
-        description: "How machine learning evaluates cipher entropy and the transition to NIST Post-Quantum standards (ML-KEM, ML-DSA).",
+        description:
+          "How machine learning evaluates cipher entropy and the transition to NIST Post-Quantum standards (ML-KEM, ML-DSA).",
         durationMin: 35,
         classification: "AI-Assisted Explanation",
-        aiWorkflow: "Auditing enterprise cipher suites and SSL/TLS certificates using AI to identify deprecated algorithms like 3DES and RC4.",
+        aiWorkflow:
+          "Auditing enterprise cipher suites and SSL/TLS certificates using AI to identify deprecated algorithms like 3DES and RC4.",
       },
     ],
-    conceptExplanation: "Cryptography secures digital assets through mathematical algorithms providing confidentiality, integrity, non-repudiation, and authentication. Ethical hackers must recognize weak cipher implementations, misconfigured keys, and prepare for quantum-resistant standards.",
+    conceptExplanation:
+      "Cryptography secures digital assets through mathematical algorithms providing confidentiality, integrity, non-repudiation, and authentication. Ethical hackers must recognize weak cipher implementations, misconfigured keys, and prepare for quantum-resistant standards.",
     aiAssistantFeatures: [
       "AI analysis of SSL/TLS cipher suites to detect deprecated ciphers and insecure protocol versions",
       "Identification of hardcoded cryptographic initialization vectors (IVs) and weak pseudo-random generators",
@@ -1663,7 +1894,8 @@ export const CEH_V13_MODULES: CehModule[] = [
         id: "lab-20",
         title: "Cryptographic Attacks, Certificate Auditing & Hash Cracking",
         environment: "Cyber Range Cryptographic Testing Lab",
-        scenario: "Identify weak SSL/TLS cipher suites on an enterprise web server, exploit a padding oracle vulnerability to decrypt ciphertext, and analyze password hash collisions.",
+        scenario:
+          "Identify weak SSL/TLS cipher suites on an enterprise web server, exploit a padding oracle vulnerability to decrypt ciphertext, and analyze password hash collisions.",
         tools: ["OpenSSL", "testssl.sh", "Hashcat", "CyberChef", "PadBuster"],
         classification: "CyberBodha Supplementary Lab",
         isAiEnhanced: true,
@@ -1676,14 +1908,17 @@ export const CEH_V13_MODULES: CehModule[] = [
     knowledgeChecks: [
       {
         id: "qc-20",
-        question: "Which cryptographic algorithm is widely recognized as a secure asymmetric algorithm built on the mathematical difficulty of elliptic curve discrete logarithms?",
+        question:
+          "Which cryptographic algorithm is widely recognized as a secure asymmetric algorithm built on the mathematical difficulty of elliptic curve discrete logarithms?",
         options: ["AES-256", "Elliptic Curve Cryptography (ECC)", "RC4", "SHA-384"],
         answerIndex: 1,
-        explanation: "Elliptic Curve Cryptography (ECC) is an asymmetric encryption method that provides equal or greater cryptographic strength with significantly smaller key sizes than RSA.",
+        explanation:
+          "Elliptic Curve Cryptography (ECC) is an asymmetric encryption method that provides equal or greater cryptographic strength with significantly smaller key sizes than RSA.",
         classification: "Practice Assessment",
       },
     ],
     moduleAssessment: "Cryptographic implementation audit and padding oracle challenge.",
-    summary: "Covers symmetric/asymmetric algorithms, PKI infrastructure, digital signatures, padding oracle attacks, and post-quantum cryptographic transitions.",
+    summary:
+      "Covers symmetric/asymmetric algorithms, PKI infrastructure, digital signatures, padding oracle attacks, and post-quantum cryptographic transitions.",
   },
 ];
